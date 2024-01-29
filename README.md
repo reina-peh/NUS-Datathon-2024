@@ -236,7 +236,7 @@ We've run the SVM (Support Vector Machine) and KNN (K-Nearest Neighbors) models 
 
 ### Model 4. Balanced Random Forest  
 
-![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/c319a205-f942-4191-a480-1caa4830fb31)
+![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/c319a205-f942-4191-a480-1caa4830fb31)  
 The Balanced Random Forest has helped in terms of Recall, possibly because it has been designed to better handle imbalanced classes by adjusting the training algorithm to focus more on the minority class. However, the trade-off here is Precision, leading to many false positives.
 
 ROC AUC Score (0.8320): This is quite a good score. It means that the model has a high chance of correctly distinguishing between the positive and negative classes. In other words, it can identify which cases are likely to be true positives versus true negatives.  
@@ -254,7 +254,7 @@ F1 Score (0.1961): Despite the high recall, the F1 score is still low because it
 
 
 
-![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/b7876757-fe1a-44df-a1aa-d33bad565e1a)
+![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/b7876757-fe1a-44df-a1aa-d33bad565e1a)  
 *XGBClassifier metrics*
 ROC AUC Score: Improved from 0.8320 with Balanced Random Forest to 0.8693 with XGBoost, indicating that the XGBoost model has a better overall ability to distinguish between the classes.
 
