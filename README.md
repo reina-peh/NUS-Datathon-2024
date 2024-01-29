@@ -313,22 +313,22 @@ We've run the SVM (Support Vector Machine) and KNN (K-Nearest Neighbors) models 
 
 
 
-### Model 4. Random Forrests and its comparison with our current best XGBClassifier 
+### Model 4. Balanced Random Forest  
 
 ![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/c319a205-f942-4191-a480-1caa4830fb31)
-*balanced random forest model metrics*
-
-ROC AUC Score (0.8320): This is quite a good score. It means that the model has a high chance of correctly distinguishing between the positive and negative classes. In other words, it can identify which cases are likely to be true positives versus true negatives.
-
-Log Loss (0.5418): Log Loss is a measure of uncertainty where lower values are better. Your model has a moderate log loss, indicating some uncertainty in the predictions it's making.
-
-Precision (0.1124): Precision is low, which tells us that when the model predicts a case as positive, it is correct only about 11.24% of the time. This suggests that there are quite a few false positives – instances where the model predicted the outcome would occur, but it didn't.
-
-Recall (0.7682): This metric is quite high, indicating the model is very good at finding the true positive cases. In practical terms, it's catching most of the instances it should.
-
-F1 Score (0.1961): Despite the high recall, the F1 score is still low because it takes into account both precision and recall. The low precision drags this score down, indicating that the model is not very balanced in its predictive performance.
-
 The Balanced Random Forest has helped in terms of Recall, possibly because it has been designed to better handle imbalanced classes by adjusting the training algorithm to focus more on the minority class. However, the trade-off here is Precision, leading to many false positives.
+
+ROC AUC Score (0.8320): This is quite a good score. It means that the model has a high chance of correctly distinguishing between the positive and negative classes. In other words, it can identify which cases are likely to be true positives versus true negatives.  
+
+Log Loss (0.5418): Log Loss is a measure of uncertainty where lower values are better. Your model has a moderate log loss, indicating some uncertainty in the predictions it's making.  
+
+Precision (0.1124): Precision is low, which tells us that when the model predicts a case as positive, it is correct only about 11.24% of the time. This suggests that there are quite a few false positives – instances where the model predicted the outcome would occur, but it didn't.  
+
+Recall (0.7682): This metric is quite high, indicating the model is very good at finding the true positive cases. In practical terms, it's catching most of the instances it should.  
+
+F1 Score (0.1961): Despite the high recall, the F1 score is still low because it takes into account both precision and recall. The low precision drags this score down, indicating that the model is not very balanced in its predictive performance.  
+
+
 
 
 
