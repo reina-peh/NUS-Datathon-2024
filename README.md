@@ -3,7 +3,7 @@
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
 Team:  
-**Team Zero**
+Team Zero
 <br>
 
 Notebook:  
@@ -11,17 +11,17 @@ Notebook:
 
 
 # Overview  
-Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt the SelectFromModel method without the 12-step data cleaning process as it gave a better F1-score. 
+Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt the SelectFromModel method with a less rigorous data cleaning process as it gave a better F1-score. 
 
 **Evaluation Metrics:**  
 1. Precision  
 2. Recall  
 3. F1 Score
 
-These metrics are particularly useful in scenarios where classes are imbalanced or when the costs of false positives and false negatives are very different.
+These metrics are particularly useful in scenarios where classes are imbalanced, which is the case for our dataset. 
 
 
-# Overview of Methods/Libraries 
+# Our Approach
 1. Data Cleaning 
 2. Feature Engineering 
 3. Imputation Techniques (SimpleImputer, IterativeImputer)
@@ -31,48 +31,31 @@ These metrics are particularly useful in scenarios where classes are imbalanced 
 7. Optuna
 8. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
-## 1. Data Cleaning  
+## Data Cleaning  
 
 **Function 1: ```clean_data(data, target)```**  
-
-This function targets null values and specific columns for removal. The steps include:  
-1. Null Value Analysis: It calculates and displays the count and percentage of null values per column.
-2. Column Removal: Columns with 100% null values are removed, except for a specified target column. Additional columns deemed redundant ('hh_20', 'pop_20', 'hh_size_est') are also dropped.
+1. Null Value Analysis: It calculates and displays the count and percentage of null values per column
+2. Column Removal: Columns with 100% null values are removed
+3. `hh_20`, `pop_20`, `hh_size_est` are also removed because we observed that `hh_size` =  `hh_20`/ `pop_20`, and  `hh_size` is more meaningful than `hh_20` and `pop_20`, and is more granular than `hh_size_est`
 
 **Function 2: ```clean_data_v2(data)```**  
-The focus here is on handling 'None' entries, data type conversion, and removing a unique identifier column.
-
-1. 'None' Entries Handling: Counts and percentages of 'None' entries per column are calculated and sorted. Rows where 'min_occ_date' or 'cltdob_fix' are 'None' are removed, indicating the importance of these fields.  
-2. Data Type Optimization: Converts all float64 columns to float32 for efficiency.
-3. Column Dropping: The 'clntnum' column, a unique identifier, is dropped as it does not contribute to the analysis.
+1. `None` Entries Handling: Counts and percentages of `None` entries per column are calculated and sorted. Rows where `min_occ_date` or `cltdob_fix` are `None` are removed 
+2. Data Type Optimization: Converts all float64 columns to float32 for efficiency
+3. Column Dropping: The `clntnum` column, a unique identifier, is dropped as it does not contribute to the analysis
 
 **Function 3: ```clean_target_column(data, target_column_name) ```**  
-This function is dedicated to preprocessing the target column of the dataset. The primary focus is to handle missing values and ensure the data type consistency of the target variable, which is crucial for the accuracy and effectiveness of the model.
+This function is dedicated to preprocessing the target column of the dataset. 
 
 
+## Data Pre-Processing / Feature Engineering
 
-## 2. Feature Engineering
-
-We have identified that age at which a customer purchases an insurance policy is important, hence we created a new column to calculate their age using ```min_occ_date``` and ```cltdob_fix```
-Train Test Split to divide a dataset into training and testing subsets for model training and evaluation
-
-
-## 3. Data Pre-Processing  
-
-**Data Imputation:**  
-To replace NaN or None Values
-
-**Challenges with Missing Data:**  
+We believe that the age of clients influences their purchasing decisions, hence we added a new column to contain values calculated by subtracting ```min_occ_date``` by ```cltdob_fix```
+  
 Total percentage of null values in the DataFrame: 22.6%
 Our dataset contained many values, with 32 columns with > 90% null values and 83 columns with > 50% null values.
 
-### Why we used Median Imputation
-
-**Robustness Against Outliers and Skewed Distributions:**  
-Median imputation was chosen for its robustness in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency in such cases.
-
-**Maintaining Data Integrity:**  
-The median imputation helps in preserving the original distribution of the dataset. This is crucial for maintaining the structural integrity of the data, ensuring that subsequent analyses are reflective of the true nature of the underlying data.
+**Median Data Imputation**  
+Our data contained many features with right-skewed distributions, which is why we used median imputation as it is robust in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency and helps in preserving the original distribution of the dataset. 
 
 ### Alternatives We Considered and Their Limitations:
 
