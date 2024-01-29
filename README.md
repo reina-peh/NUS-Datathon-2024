@@ -15,6 +15,22 @@ Singlife has identified a worrisome trend in the customer journey, where potenti
 # Data-Driven Approach
 Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our quantitative priority.
 
+From conducting EDA, we observed 5 types of policies:  
+general insurance (gi)
+group policies (grp)
+investment-linked policies (inv)
+life or health insurance (lh)
+long-term care insurance (ltc)
+
+Unique identifiers of each policy type:  
+Unique identifiers for gi policies: {'29d435', '856320', '058815', 'a10d1b', '42e115'}
+Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}
+Unique identifiers for inv policies: {'e9f316', 'dcd836'}
+Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}
+Unique identifiers for ltc policies: {'43b9d5', '1280bf'}
+
+There were also unique identifiers '32c74c', 'sumins_c4bda5' that were are not found with any policy type. 
+
 ### Overview of Methods/Libraries 
 1. Feature Engineering 
 2. Imputation Techniques (SimpleImputer, IterativeImputer)
@@ -152,101 +168,7 @@ In the training stage, we opted for the XGBoost classifier, guided by a comparat
 
 These factors combined — the ensemble approach, regularization, versatility in data handling, and optimized performance — make XGBoost an excellent choice for our dataset, leading to superior accuracy and efficiency compared to the alternatives.
 
-Previously considered steps:
 
-
-### **Hyperparameter Optimization with Optuna for XGBoost Model**
-
-We focused on optimising the hyperparameters of an XGBoost classifier using the Optuna library. The goal is to find the best combination of hyperparameters that maximizes the F1 score of the model on the validation dataset. This is achieved through a systematic and efficient search across a specified range of hyperparameter values.
-
-### 1. Data Exploration and Cleaning
-*To reduce the number of features to help us with our model building process, we identified a few issues:*
-- Null Values: Check for missing or null values in the dataset.
-- Data Types: Ensure each column has the correct data type (e.g., dates, categorical data, numerical values).
-- Outliers: Identify any outliers in numerical data that might skew analysis.
-
-
-*And utilised methods targeted at them:* 
-1. Dropped the columns that were not relevant to the problem statement.
-     - 'clntnum', a unique identifier for each customer, not relevant to the problem statement.
-2. Checked for duplicates (none)
-3. Found the number and type of unique values in each column
-4. Identified columns with an 'object' data type.
-    - For columns with names matching patterns like 'n_months_since_lapse_' or 'n_months_last_bought_',convert them to a numeric data type.
-    - Check if columns contain values of type Decimal or float and converts them accordingly.
-    - Categorial data: certain columns are designated as categorical.
-      - ie. ('clntnum', 'race_desc', 'ctrycode_desc', 'clttype', 'stat_flag', 'cltsex_fix', 'annual_income_est')
-    - Date formatting: Other non-categorial columns are converted to datetime format 
-5. Calculated the null values in each column 
-      - drop the columns with 100% null values (except the target column)
-  
-
-
-
-### 2. Feature Engineering
-- Further exploring the dataset, we realised that there are 5 types of policies:
-1. general insurance (gi)
-2. group policies (grp)
-3. investment-linked policies (inv)
-4. life or health insurance (lh)
-5. long-term care insurance (ltc)
-
-The suffixes (e.g. 42e115, 1280bf) are unique identifiers for the specific insurance products.
-
-- We proceed to find unique identifiers of each policy type
-  - Unique identifiers for gi policies: {'29d435', 'claim', '856320', '058815', 'a10d1b', '42e115'}
-- Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}
-- Unique identifiers for inv policies: {'e9f316', 'dcd836'}
-- Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}
-- Unique identifiers for ltc policies: {'43b9d5', '1280bf'}
-
-
-
-### 3. Data Processing
-Examining the relationship between clients identified as 'at risk' and their history of insurance claims
-
-#### New Claims Flag Creation:
-A new binary flag called flg_has_claims is created in the demo_data DataFrame. This flag is set to 1 for clients who have made a claim in either health, life, or general insurance (as indicated by the respective flags flg_has_health_claim, flg_has_life_claim, flg_gi_claim). This unifies different types of claims into a single column for simplified analysis.
-
-#### Subset DataFrames:
-Two separate subsets of the demo_data DataFrame are created. One (at_risk_df) includes clients who are marked as 'at risk' (flg_at_risk equals 1), and the other (not_at_risk_df) includes those not marked as 'at risk'. Both DataFrames include only the new flg_has_claims column.
-
-#### Calculating Percentages:
-The code calculates the percentage of 'at risk' clients who have made claims and the percentage of 'not at risk' clients who have made claims. The result is 25.38% for 'at risk' and 6.58% for 'not at risk'.
-
-#### Analysis Interpretation:
-This indicates that a significant minority (about a quarter) of the 'at risk' clients have made claims on their policies. In contrast, a much smaller proportion of clients not identified as 'at risk' have made claims. This suggests that the 'at risk' flag may be a good indicator of higher claim activity and could be an area to focus on to prevent policy disengagement.
-
-### Suggestions to Singhealth based on the analysis:
-Based on this analysis, Singlife can take the following actions to address the customer journey issues:
-
-1. Enhanced Communication: Tailor communication strategies for 'at risk' clients, especially around the claims process, to improve their experience and possibly prevent disengagement.
-2. Risk Management: Review the criteria for labeling clients as 'at risk' and assess whether the current model effectively identifies clients who may need additional support.
-3. Customer Support: Implement proactive support for 'at risk' clients who have made claims to guide them through the process and encourage continued engagement.
-By addressing these points, Singlife can aim to improve customer satisfaction, reduce drop-off during the acquisition process, and potentially increase conversion rates.
-
-### 4. Model Building and Evaluation
-
-Processing the train_test_split:
-- Imported the train_test_split function from the sklearn.model_selection module, which is a part of the scikit-learn library, a popular machine learning library in Python.
-
-Splitting the Dataset:
-- Called the train_test_split function with the following parameters:
-  - data_cleaned
-  - test_size=0.2: 20% of the datareserved for the validation set (val). The remaining 80% of the data will be used as the training set (tr).
-  - random_state=42: A seed for the random number generator to ensure reproducibility 
-
-Training and Validation Sets:
-- The function returns two subsets of the data:
-    - tr: The training set, which contains 80% of the data. This subset is used to train the machine learning model.
-    - val: The validation set, which contains 20% of the data. This subset is used to evaluate the model's performance and to fine-tune the model's hyperparameters.
-
-
-### 5. Model Deployment: (Best Model is the XGBClassifier)
-Utiised 4 types of models; XGBClassifier (with and without optuna),  KNN, SVM, Logistic Regression and Random Forrest 
-
-
-### 6. Success metrics used ROC AUC score, logloss, precision, recall & f1-score
 
 ### Model 1: XGBClassifier
 
@@ -287,7 +209,6 @@ The application of Optuna for hyperparameter tuning of the XGBoost model has pro
 - Implement the optimized model in a production environment to assess the improvements in a real-world setting.
 - Explore the incorporation of additional hyperparameters and the use of more advanced Optuna features like pruners and samplers for further refinement.
 - Conduct additional optimization rounds as more data becomes available or as the characteristics of the data evolve over time.
-
 
 
 
