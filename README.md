@@ -15,6 +15,13 @@ Singlife has identified a worrisome trend in the customer journey, where potenti
 # Our ML Approach
 Over a span of 2 days, we supervised machine learning models to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt the SelectFromModel method without the 12-step data cleaning process as it gave a better F1-score. 
 
+Evaluation Metrics:  
+1. Precision  
+2. Recall  
+3. F1 Score
+
+These metrics are particularly useful in scenarios where classes are imbalanced or when the costs of false positives and false negatives are very different.
+
 
 ### Overview of Methods/Libraries 
 1. Data Cleaning 
@@ -122,19 +129,6 @@ The goal was to distill the dataset to a manageable number of features without l
 **Outcome and Impact:**  
 By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior. This not only enhanced the model's performance by reducing noise and complexity but also aided in interpretability, allowing for more straightforward insights and decision-making based on the model's outputs.
 
-## 5. Evaluation Metrics: Precision, Recall, and F1 Score
-
-**Precision**  
-Accuracy of positive predictions  
-It is the ratio of true positive predictions to the total number of positive predictions (true positives + false positives). A higher precision score indicates that the model is more accurate in predicting positive cases.
-
-**Recall**  
-(Sensitivity) measures the model's ability to correctly identify all positive cases. It is the ratio of true positive predictions to the actual number of positive cases (true positives + false negatives). Higher recall indicates that the model is better at catching all positive cases.
-
-**F1 Score**   
-Harmonic mean of precision and recall. It is a balance between precision and recall, providing a single metric that summarizes the model's accuracy. An F1 score reaches its best value at 1 (perfect precision and recall) and its worst at 0.
-
-These metrics are particularly useful in scenarios where classes are imbalanced or when the costs of false positives and false negatives are very different.
 
 
 
