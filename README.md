@@ -37,8 +37,7 @@ This function targets null values and specific columns for removal. The steps in
 **Function 2: ```clean_data_v2(data)```**  
 The focus here is on handling 'None' entries, data type conversion, and removing a unique identifier column.
 
-1. 'None' Entries Handling: Counts and percentages of 'None' entries per column are calculated and sorted.
-Row Removal: Rows where 'min_occ_date' or 'cltdob_fix' are 'None' are removed, indicating the importance of these fields.
+1. 'None' Entries Handling: Counts and percentages of 'None' entries per column are calculated and sorted. Rows where 'min_occ_date' or 'cltdob_fix' are 'None' are removed, indicating the importance of these fields.  
 2. Data Type Optimization: Converts all float64 columns to float32 for efficiency.
 3. Column Dropping: The 'clntnum' column, a unique identifier, is dropped as it does not contribute to the analysis.
 
