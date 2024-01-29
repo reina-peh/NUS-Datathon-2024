@@ -2,7 +2,8 @@
 ![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
-Team: **Team Zero**
+Team:  
+**Team Zero**
 <br>
 
 Notebook:  
@@ -23,16 +24,15 @@ Over the past 2-3 days, we have conducted extensive data analysis, data pre-proc
 6. Optuna
 7. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
-### 1. Data Exploration and Cleaning
-### **Data Cleaning**
+# 1. Data Exploration and Cleaning  
 
-### Function 1: ```clean_data(data, target)```
-This function targets null values and specific columns for removal. The steps include:
+### Function 1: ```clean_data(data, target)```  
 
+This function targets null values and specific columns for removal. The steps include:  
 1. Null Value Analysis: It calculates and displays the count and percentage of null values per column.
 2. Column Removal: Columns with 100% null values are removed, except for a specified target column. Additional columns deemed redundant ('hh_20', 'pop_20', 'hh_size_est') are also dropped.
 
-### *Function* 2: ```clean_data_v2(data)```
+### Function 2: ```clean_data_v2(data)```
 The focus here is on handling 'None' entries, data type conversion, and removing a unique identifier column.
 
 1. 'None' Entries Handling: Counts and percentages of 'None' entries per column are calculated and sorted.
@@ -45,82 +45,99 @@ This function is dedicated to preprocessing the target column of the dataset. Th
 
 
 
-### 2. Feature Engineering
-###Feature Engineering
+# 2. Feature Engineering
 
 We have identified that age at which a customer purchases an insurance policy is important, hence we created a new column to calculate their age using ```min_occ_date``` and ```cltdob_fix```
+Train Test Split to divide a dataset into training and testing subsets for model training and evaluation
 
-Train Test Split to divide a dataset into training and testing subsets for model training and evaluation**
 
+# 3. Data Pre-Processing  
 
-### 3. Data Processing
-### **Data Imputation: Addressing NaN or None Values**
+**Data Imputation:**  
+To replace NaN or None Values
 
-**Challenges with Missing Data:** Our dataset contained NaN or None values, which posed a significant challenge for performing accurate statistical analyses and data visualizations. The choice of imputation technique was critical to preserve data integrity and maintain the reliability of our analyses.
+**Challenges with Missing Data:**  
+Total percentage of null values in the DataFrame: 22.6%
+Our dataset contained many values, with 32 columns with > 90% null values and 83 columns with > 50% null values.
 
-**Why Median Imputation?**
+### Why we used Median Imputation
 
-- **Robustness Against Outliers and Skewed Distributions:** Median imputation was chosen for its robustness in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency in such cases.
+**Robustness Against Outliers and Skewed Distributions:**  
+Median imputation was chosen for its robustness in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency in such cases.
 
-- **Maintaining Data Integrity:** The median imputation helps in preserving the original distribution of the dataset. This is crucial for maintaining the structural integrity of the data, ensuring that subsequent analyses are reflective of the true nature of the underlying data.
+**Maintaining Data Integrity:**  
+The median imputation helps in preserving the original distribution of the dataset. This is crucial for maintaining the structural integrity of the data, ensuring that subsequent analyses are reflective of the true nature of the underlying data.
 
-**Alternatives Considered and Their Limitations:**
+### Alternatives We Considered and Their Limitations:
 
-- **Mean Imputation:** Simple imputer mean was considered; however, its susceptibility to outliers made it less suitable for our dataset. Mean imputation could potentially introduce bias, especially in skewed distributions, leading to distorted analyses.
+**Mean Imputation:**
+Simple imputer mean was considered; however, its susceptibility to outliers made it less suitable for our dataset. Mean imputation could potentially introduce bias, especially in skewed distributions, leading to distorted analyses.
 
-- **Simplicity and Efficiency:** Given the size and nature of our dataset, median imputation offered a balance between simplicity, computational efficiency, and effectiveness. This method allowed us to quickly and effectively address missing values, enabling us to proceed with our analyses without introducing significant bias.
+**Simplicity and Efficiency:**
+Given the size and nature of our dataset, median imputation offered a balance between simplicity, computational efficiency, and effectiveness. This method allowed us to quickly and effectively address missing values, enabling us to proceed with our analyses without introducing significant bias.
 
 ### Under-Over Sampling Technique
 
 In our data preprocessing phase, we implemented a combined under-over sampling strategy to address the class imbalance in our dataset. Class imbalance is a common issue in machine learning, where some classes are underrepresented compared to others. This imbalance can lead to biased models that don't perform well on minority classes.
 
-**Why We Chose Under-Over Sampling:**
+### Why We Chose Under-Over Sampling:
 
-- **Under-Sampling**: We first applied Random Under-Sampling to reduce the size of the overrepresented class. This approach helps in balancing the class distribution and reducing the training dataset size, which can be beneficial for computational efficiency.
+**Under-Sampling**:  
+We first applied Random Under-Sampling to reduce the size of the overrepresented class. This approach helps in balancing the class distribution and reducing the training dataset size, which can be beneficial for computational efficiency.
 
-- **Over-Sampling with SMOTENC**: After under-sampling, we used SMOTENC (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) for over-sampling the minority class. Unlike basic over-sampling techniques, SMOTENC generates synthetic samples for the minority class in a more sophisticated manner, considering both nominal and continuous features. This leads to a more balanced and representative training dataset.
+**Over-Sampling with SMOTENC**:  
+After under-sampling, we used SMOTENC (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) for over-sampling the minority class. Unlike basic over-sampling techniques, SMOTENC generates synthetic samples for the minority class in a more sophisticated manner, considering both nominal and continuous features. This leads to a more balanced and representative training dataset.
 
-- **Combining Both Techniques**: By combining under-sampling and over-sampling, we aimed to create a more balanced dataset without losing significant information. This combination helps in improving the model's performance, especially its ability to predict minority class instances, leading to more reliable and generalized outcomes.
+**Combining Both Techniques**:  
+By combining under-sampling and over-sampling, we aimed to create a more balanced dataset without losing significant information. This combination helps in improving the model's performance, especially its ability to predict minority class instances, leading to more reliable and generalized outcomes.
 
 By carefully addressing the class imbalance using this combined approach, we enhanced the model's ability to learn from a more representative dataset, thereby improving its predictive performance on unseen data.
 
-### 4. Model Building and Evaluation
-### **Feature Selection**
+# 4. Model Building and Evaluation  
 
-**Understanding Key Influencers in High-Dimensional Data:** In our project, the primary challenge was to decipher the most influential factors from a dataset that originally contained over 200 columns. Such a high-dimensional dataset can obscure crucial insights, especially when analyzing complex customer behaviors. To navigate this, a strategic approach to feature selection was essential.
+**Feature Selection**  
+**Understanding Key Influencers in High-Dimensional Data:**  
+In our project, the primary challenge was to decipher the most influential factors from a dataset that originally contained over 200 columns. Such a high-dimensional dataset can obscure crucial insights, especially when analyzing complex customer behaviors. To navigate this, a strategic approach to feature selection was essential.
 
-**Integrating XGBClassifier with SelectFromModel:**
+### Integrating XGBClassifier with SelectFromModel:
 
-- **Utilizing a Strong Classifier:** We employed the XGBClassifier, renowned for its effectiveness in classification tasks and its capability to rank feature importance. XGBoost, with its gradient boosting framework, excels in handling various types of data and uncovering complex patterns. Its intrinsic feature importance metric provides a reliable basis for feature selection.
+**Utilizing a Strong Classifier:**
+We employed the XGBClassifier, renowned for its effectiveness in classification tasks and its capability to rank feature importance. XGBoost, with its gradient boosting framework, excels in handling various types of data and uncovering complex patterns. Its intrinsic feature importance metric provides a reliable basis for feature selection.
 
-- **SelectFromModel Methodology:** The SelectFromModel method was applied in tandem with the XGBClassifier. This method analyzes the feature importance scores generated by the classifier and retains only the most significant features. For our project, we chose to keep the top 40 features. This threshold was thoughtfully selected to ensure that we retain enough features to capture the diverse aspects of customer behavior while avoiding the pitfalls of model overcomplexity and potential overfitting.
+**SelectFromModel Methodology:**
+The SelectFromModel method was applied in tandem with the XGBClassifier. This method analyzes the feature importance scores generated by the classifier and retains only the most significant features. For our project, we chose to keep the top 40 features. This threshold was thoughtfully selected to ensure that we retain enough features to capture the diverse aspects of customer behavior while avoiding the pitfalls of model overcomplexity and potential overfitting.
 
 **Why SelectFromModel Over RFE or PCA?**
 
-- **Computational Efficiency:** Recursive Feature Elimination (RFE) is inherently iterative and computationally demanding, especially with a large number of features. In contrast, SelectFromModel offers a more computationally efficient alternative.
+**Computational Efficiency:**  
+Recursive Feature Elimination (RFE) is inherently iterative and computationally demanding, especially with a large number of features. In contrast, SelectFromModel offers a more computationally efficient alternative.
 
-- **Preserving Interpretability with PCA Limitations:** While PCA is effective for reducing dimensionality, it transforms the original features into principal components, which can be challenging to interpret, especially in a business context where understanding specific feature influences is crucial. SelectFromModel maintains the original features, making the results more interpretable and actionable.
+**Preserving Interpretability with PCA Limitations:**  
+While PCA is effective for reducing dimensionality, it transforms the original features into principal components, which can be challenging to interpret, especially in a business context where understanding specific feature influences is crucial. SelectFromModel maintains the original features, making the results more interpretable and actionable.
 
-- **Balancing Feature Set and Model Complexity:** The goal was to distill the dataset to a manageable number of features without losing critical information. SelectFromModel, coupled with XGBClassifier, provided a more nuanced approach to achieving this balance compared to the broad dimensionality reduction offered by PCA or the intensive feature elimination process of RFE.
+**Balancing Feature Set and Model Complexity:**  
+The goal was to distill the dataset to a manageable number of features without losing critical information. SelectFromModel, coupled with XGBClassifier, provided a more nuanced approach to achieving this balance compared to the broad dimensionality reduction offered by PCA or the intensive feature elimination process of RFE.
 
-**Outcome and Impact:**
-
+**Outcome and Impact:**  
 By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior. This not only enhanced the model's performance by reducing noise and complexity but also aided in interpretability, allowing for more straightforward insights and decision-making based on the model's outputs.
 
-### 5. Evaluation Metrics: Precision, Recall, and F1 Score
+# 5. Evaluation Metrics: Precision, Recall, and F1 Score
 
-**Precision** measures the accuracy of positive predictions. It is the ratio of true positive predictions to the total number of positive predictions (true positives + false positives). A higher precision score indicates that the model is more accurate in predicting positive cases.
+**Precision**  
+Accuracy of positive predictions  
+It is the ratio of true positive predictions to the total number of positive predictions (true positives + false positives). A higher precision score indicates that the model is more accurate in predicting positive cases.
 
-**Recall** (Sensitivity) measures the model's ability to correctly identify all positive cases. It is the ratio of true positive predictions to the actual number of positive cases (true positives + false negatives). Higher recall indicates that the model is better at catching all positive cases.
+**Recall**  
+(Sensitivity) measures the model's ability to correctly identify all positive cases. It is the ratio of true positive predictions to the actual number of positive cases (true positives + false negatives). Higher recall indicates that the model is better at catching all positive cases.
 
-**F1 Score** is the harmonic mean of precision and recall. It is a balance between precision and recall, providing a single metric that summarizes the model's accuracy. An F1 score reaches its best value at 1 (perfect precision and recall) and its worst at 0.
+**F1 Score**   
+Harmonic mean of precision and recall. It is a balance between precision and recall, providing a single metric that summarizes the model's accuracy. An F1 score reaches its best value at 1 (perfect precision and recall) and its worst at 0.
 
 These metrics are particularly useful in scenarios where classes are imbalanced or when the costs of false positives and false negatives are very different.
 
 
 
-# Previous Iterations 
-
+# Previous Iterations  
 
 ### **Model Training**
 In the training stage, we opted for the XGBoost classifier, guided by a comparative performance analysis against models like Logistic Regression, SVM, and KNN. The `pretrain_model` function is responsible for initializing the XGBClassifier with chosen hyperparameters and fitting it to the training data. Below are the key theoretical reasons for selecting XGBoost:
