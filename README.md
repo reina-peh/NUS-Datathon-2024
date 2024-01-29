@@ -27,13 +27,13 @@ Over the past 2-3 days, we have conducted extensive data analysis, data pre-proc
 
 ## 1. Data Cleaning  
 
-### Function 1: ```clean_data(data, target)```  
+**Function 1: ```clean_data(data, target)```**  
 
 This function targets null values and specific columns for removal. The steps include:  
 1. Null Value Analysis: It calculates and displays the count and percentage of null values per column.
 2. Column Removal: Columns with 100% null values are removed, except for a specified target column. Additional columns deemed redundant ('hh_20', 'pop_20', 'hh_size_est') are also dropped.
 
-### Function 2: ```clean_data_v2(data)```
+**Function 2: ```clean_data_v2(data)```**
 The focus here is on handling 'None' entries, data type conversion, and removing a unique identifier column.
 
 1. 'None' Entries Handling: Counts and percentages of 'None' entries per column are calculated and sorted.
@@ -41,7 +41,7 @@ Row Removal: Rows where 'min_occ_date' or 'cltdob_fix' are 'None' are removed, i
 2. Data Type Optimization: Converts all float64 columns to float32 for efficiency.
 3. Column Dropping: The 'clntnum' column, a unique identifier, is dropped as it does not contribute to the analysis.
 
-### Function 3: ```clean_target_column(data, target_column_name) ```
+**Function 3: ```clean_target_column(data, target_column_name) ```**
 This function is dedicated to preprocessing the target column of the dataset. The primary focus is to handle missing values and ensure the data type consistency of the target variable, which is crucial for the accuracy and effectiveness of the model.
 
 
