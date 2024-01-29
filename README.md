@@ -9,11 +9,9 @@ Team:
 Notebook:  
 [Link to Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
 
-# Problem Statement
-Singlife has identified a worrisome trend in the customer journey, where potential policyholders exhibit hesitation and disengagement during the insurance acquisition process. In response, Singlife aims to harness the power of its dataset to extract actionable insights that will elevate the overall customer experience. The challenge lies in dissecting the dataset to unearth key touchpoints responsible for customer drop-offs and pinpoint opportunities for optimizing the application process and tailoring communication. The ultimate objective is to predict and improve customer satisfaction and conversion rates, thus reinforcing Singlife's competitive edge in the market.
 
-# Our ML Approach
-Over a span of 2 days, we supervised machine learning models to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt the SelectFromModel method without the 12-step data cleaning process as it gave a better F1-score. 
+# Overview  
+Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt the SelectFromModel method without the 12-step data cleaning process as it gave a better F1-score. 
 
 Evaluation Metrics:  
 1. Precision  
