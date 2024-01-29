@@ -16,18 +16,18 @@ Singlife has identified a worrisome trend in the customer journey, where potenti
 Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our quantitative priority.
 
 From conducting EDA, we observed 5 types of policies:  
-general insurance (gi)
-group policies (grp)
-investment-linked policies (inv)
-life or health insurance (lh)
+general insurance (gi)  
+group policies (grp)  
+investment-linked policies (inv)  
+life or health insurance (lh)  
 long-term care insurance (ltc)
 
 Unique identifiers of each policy type:  
-Unique identifiers for gi policies: {'29d435', '856320', '058815', 'a10d1b', '42e115'}
-Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}
-Unique identifiers for inv policies: {'e9f316', 'dcd836'}
-Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}
-Unique identifiers for ltc policies: {'43b9d5', '1280bf'}
+Unique identifiers for gi policies: {'29d435', '856320', '058815', 'a10d1b', '42e115'}  
+Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}  
+Unique identifiers for inv policies: {'e9f316', 'dcd836'}  
+Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}  
+Unique identifiers for ltc policies: {'43b9d5', '1280bf'}  
 
 There were also unique identifiers '32c74c', 'sumins_c4bda5' that were are not found with any policy type. 
 
