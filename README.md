@@ -13,32 +13,17 @@ Notebook:
 Singlife has identified a worrisome trend in the customer journey, where potential policyholders exhibit hesitation and disengagement during the insurance acquisition process. In response, Singlife aims to harness the power of its dataset to extract actionable insights that will elevate the overall customer experience. The challenge lies in dissecting the dataset to unearth key touchpoints responsible for customer drop-offs and pinpoint opportunities for optimizing the application process and tailoring communication. The ultimate objective is to predict and improve customer satisfaction and conversion rates, thus reinforcing Singlife's competitive edge in the market.
 
 # Our ML Approach
-Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our quantitative priority.
-
-From conducting EDA, we observed 5 types of policies:  
-general insurance (gi)  
-group policies (grp)  
-investment-linked policies (inv)  
-life or health insurance (lh)  
-long-term care insurance (ltc)
-
-Unique identifiers of each policy type:  
-Unique identifiers for gi policies: {'29d435', '856320', '058815', 'a10d1b', '42e115'}  
-Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}  
-Unique identifiers for inv policies: {'e9f316', 'dcd836'}  
-Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}  
-Unique identifiers for ltc policies: {'43b9d5', '1280bf'}  
-
-There were also unique identifiers '32c74c', 'sumins_c4bda5' that were are not found with any policy type. 
+Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). A significant number of columns with object dtype actually contained numerical values. 
 
 ### Overview of Methods/Libraries 
-1. Feature Engineering 
-2. Imputation Techniques (SimpleImputer, IterativeImputer)
-3. RandomUnderSampler
-4. SMOTE 
-5. XGClassifier + SelectFromModel feature selection method
-6. Optuna
-7. Other Models (Balanced RF, logistic regression, KNN, SVM)
+1. Data Exploration and Cleaning 
+2. Feature Engineering 
+3. Imputation Techniques (SimpleImputer, IterativeImputer)
+4. RandomUnderSampler
+5. SMOTE 
+6. XGClassifier + SelectFromModel feature selection method
+7. Optuna
+8. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
 # 1. Data Exploration and Cleaning  
 
@@ -154,6 +139,28 @@ These metrics are particularly useful in scenarios where classes are imbalanced 
 
 
 # Previous Iterations  
+
+Our previous iterations focused heavily on dimensionality reduction, which we thought was a crucial step since the raw data contains a total of 303 non-target variables. 
+
+From conducting EDA, we observed 5 types of policies:  
+general insurance (gi)  
+group policies (grp)  
+investment-linked policies (inv)  
+life or health insurance (lh)  
+long-term care insurance (ltc)
+
+Unique identifiers of each policy type:  
+```
+Unique identifiers for gi policies: {'29d435', '856320', '058815', 'a10d1b', '42e115'}  
+Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}  
+Unique identifiers for inv policies: {'e9f316', 'dcd836'}  
+Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}  
+Unique identifiers for ltc policies: {'43b9d5', '1280bf'}
+ ```
+
+There were also unique identifiers '32c74c', 'sumins_c4bda5' that were are not found with any policy type. 
+
+
 
 ### **Model Training**
 In the training stage, we opted for the XGBoost classifier, guided by a comparative performance analysis against models like Logistic Regression, SVM, and KNN. The `pretrain_model` function is responsible for initializing the XGBClassifier with chosen hyperparameters and fitting it to the training data. Below are the key theoretical reasons for selecting XGBoost:
