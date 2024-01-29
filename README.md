@@ -16,7 +16,7 @@ Singlife has identified a worrisome trend in the customer journey, where potenti
 Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). A significant number of columns with object dtype actually contained numerical values. 
 
 ### Overview of Methods/Libraries 
-1. Data Exploration and Cleaning 
+1. EDA (refer to past iterations section) and Cleaning 
 2. Feature Engineering 
 3. Imputation Techniques (SimpleImputer, IterativeImputer)
 4. RandomUnderSampler
