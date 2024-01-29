@@ -31,7 +31,7 @@ These metrics are particularly useful in scenarios where classes are imbalanced,
 7. Optuna
 8. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
-## Data Cleaning  
+# Data Cleaning  
 
 **Function 1: ```clean_data(data, target)```**  
 1. Null Value Analysis: It calculates and displays the count and percentage of null values per column
@@ -47,54 +47,44 @@ These metrics are particularly useful in scenarios where classes are imbalanced,
 This function is dedicated to preprocessing the target column of the dataset. 
 
 
-## Data Pre-Processing / Feature Engineering
+# Data Pre-Processing / Feature Engineering
 
+### client_age
 We believe that the age of clients influences their purchasing decisions, hence we added a new column to contain values calculated by subtracting ```min_occ_date``` by ```cltdob_fix```
   
-Total percentage of null values in the DataFrame: 22.6%
+Total percentage of null values in the DataFrame: 22.6%  
 Our dataset contained many values, with 32 columns with > 90% null values and 83 columns with > 50% null values.
 
-**Median Data Imputation**  
+### Median Data Imputation  
 Our data contained many features with right-skewed distributions, which is why we used median imputation as it is robust in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency and helps in preserving the original distribution of the dataset. 
 
-### Alternatives We Considered and Their Limitations:
+### Under-Over Sampling Technique  
+We implemented a combined under-over sampling strategy to address the class imbalance in our dataset. 
 
-**Mean Imputation:**
-Simple imputer mean was considered; however, its susceptibility to outliers made it less suitable for our dataset. Mean imputation could potentially introduce bias, especially in skewed distributions, leading to distorted analyses.
-
-**Simplicity and Efficiency:**
-Given the size and nature of our dataset, median imputation offered a balance between simplicity, computational efficiency, and effectiveness. This method allowed us to quickly and effectively address missing values, enabling us to proceed with our analyses without introducing significant bias.
-
-### Under-Over Sampling Technique
-
-In our data preprocessing phase, we implemented a combined under-over sampling strategy to address the class imbalance in our dataset. Class imbalance is a common issue in machine learning, where some classes are underrepresented compared to others. This imbalance can lead to biased models that don't perform well on minority classes.
-
-### Why We Chose Under-Over Sampling:
-
-**Under-Sampling**:  
+**Under-Sampling**  
 We first applied Random Under-Sampling to reduce the size of the overrepresented class. This approach helps in balancing the class distribution and reducing the training dataset size, which can be beneficial for computational efficiency.
 
-**Over-Sampling with SMOTENC**:  
+**Over-Sampling with SMOTENC**  
 After under-sampling, we used SMOTENC (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) for over-sampling the minority class. Unlike basic over-sampling techniques, SMOTENC generates synthetic samples for the minority class in a more sophisticated manner, considering both nominal and continuous features. This leads to a more balanced and representative training dataset.
 
-**Combining Both Techniques**:  
-By combining under-sampling and over-sampling, we aimed to create a more balanced dataset without losing significant information. This combination helps in improving the model's performance, especially its ability to predict minority class instances, leading to more reliable and generalized outcomes.
-
+**Combining Both Techniques**  
+By combining under-sampling and over-sampling, we aimed to create a more balanced dataset without losing significant information. This combination helps in improving the model's performance, especially its ability to predict minority class instances, leading to more reliable and generalized outcomes.  
+<br>
 By carefully addressing the class imbalance using this combined approach, we enhanced the model's ability to learn from a more representative dataset, thereby improving its predictive performance on unseen data.
 
-## 4. Model Building and Evaluation  
+# Feature Selection / ML Model 
 
 **Feature Selection**  
-**Understanding Key Influencers in High-Dimensional Data:**  
-In our project, the primary challenge was to decipher the most influential factors from a dataset that originally contained over 200 columns. Such a high-dimensional dataset can obscure crucial insights, especially when analyzing complex customer behaviors. To navigate this, a strategic approach to feature selection was essential.
+**Understanding Key Influencers in High-Dimensional Data**  
+One of our primary challenges was to decipher the most influential factors from a dataset that originally contained over 300 columns (200+ after data cleaning).
 
-### Integrating XGBClassifier with SelectFromModel:
+### Integrating XGBClassifier with SelectFromModel
 
 **Utilizing a Strong Classifier:**
-We employed the XGBClassifier, renowned for its effectiveness in classification tasks and its capability to rank feature importance. XGBoost, with its gradient boosting framework, excels in handling various types of data and uncovering complex patterns. Its intrinsic feature importance metric provides a reliable basis for feature selection.
+We employed the XGBClassifier, renowned for its effectiveness in classification tasks and its capability to rank feature importance. 
 
 **SelectFromModel Methodology:**
-The SelectFromModel method was applied in tandem with the XGBClassifier. This method analyzes the feature importance scores generated by the classifier and retains only the most significant features. For our project, we chose to keep the top 40 features. This threshold was thoughtfully selected to ensure that we retain enough features to capture the diverse aspects of customer behavior while avoiding the pitfalls of model overcomplexity and potential overfitting.
+The SelectFromModel method was applied in tandem with the XGBClassifier. This method analyzes the feature importance scores generated by the classifier and retains only the most significant features. We chose to keep the top 40 features. This threshold was thoughtfully selected to ensure that we retain enough features to capture the diverse aspects of customer behavior while avoiding the pitfalls of model over-complexity and potential overfitting.
 
 **Why SelectFromModel Over RFE or PCA?**
 
@@ -104,71 +94,14 @@ Recursive Feature Elimination (RFE) is inherently iterative and computationally 
 **Preserving Interpretability with PCA Limitations:**  
 While PCA is effective for reducing dimensionality, it transforms the original features into principal components, which can be challenging to interpret, especially in a business context where understanding specific feature influences is crucial. SelectFromModel maintains the original features, making the results more interpretable and actionable.
 
-**Balancing Feature Set and Model Complexity:**  
-The goal was to distill the dataset to a manageable number of features without losing critical information. SelectFromModel, coupled with XGBClassifier, provided a more nuanced approach to achieving this balance compared to the broad dimensionality reduction offered by PCA or the intensive feature elimination process of RFE.
-
 **Outcome and Impact:**  
-By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior. This not only enhanced the model's performance by reducing noise and complexity but also aided in interpretability, allowing for more straightforward insights and decision-making based on the model's outputs.
+By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior. 
 
 
+# XGBClassifier with Optuna 
+Optuna is a hyperparameter optimization framework that employs a Bayesian optimization technique to search the hyperparameter space. Unlike traditional grid search, which exhaustively tries all possible combinations, or random search, which randomly selects combinations within the search space, Optuna intelligently navigates the search space by considering the results of past trials.
 
-
-# Previous Iterations  
-
-
-From conducting EDA, we observed 5 types of policies:  
-general insurance (gi)  
-group policies (grp)  
-investment-linked policies (inv)  
-life or health insurance (lh)  
-long-term care insurance (ltc)
-
-Unique identifiers of each policy type:  
-```
-Unique identifiers for gi policies: {'29d435', '856320', '058815', 'a10d1b', '42e115'}  
-Unique identifiers for grp policies: {'e91421', 'de05ae', '9cdedf', 'caa6ff', '70e1dd', '22decf', '94baec', 'fe5fb8', 'e04c3a', '6a5788', 'fd3bfb', '1581d7', '6fc3e6', '945b5a'}  
-Unique identifiers for inv policies: {'e9f316', 'dcd836'}  
-Unique identifiers for lh policies: {'d0adeb', 'e22a6a', '839f8a', '507c37', 'f852af', '947b15'}  
-Unique identifiers for ltc policies: {'43b9d5', '1280bf'}
- ```
-
-There were also unique identifiers '32c74c', 'sumins_c4bda5' that were are not found with any policy type. 
-
-
-
-### **Model Training**
-In the training stage, we opted for the XGBoost classifier, guided by a comparative performance analysis against models like Logistic Regression, SVM, and KNN. The `pretrain_model` function is responsible for initializing the XGBClassifier with chosen hyperparameters and fitting it to the training data. Below are the key theoretical reasons for selecting XGBoost:
-
-1. **Ensemble Learning Method**: XGBoost leverages an advanced form of gradient boosting, an ensemble technique where multiple weak learners (decision trees) are combined in a sequential manner. Each tree in the sequence corrects the errors of its predecessors, culminating in a robust overall model.
-
-2. **Regularization Techniques**: It includes L1 and L2 regularization, which significantly reduce the risk of overfitting, a crucial advantage over traditional models, particularly in complex datasets.
-
-3. **Versatile Data Handling**: XGBoost efficiently processes a mix of categorical and numerical features, outperforming models like Logistic Regression and KNN that often require extensive preprocessing for different data types.
-
-4. **Optimized Performance and Speed**: Designed for high performance and speed, XGBoost optimizes computational resources and memory usage, making it more scalable and faster than conventional algorithms, especially in handling large datasets.
-
-These factors combined — the ensemble approach, regularization, versatility in data handling, and optimized performance — make XGBoost an excellent choice for our dataset, leading to superior accuracy and efficiency compared to the alternatives.
-
-
-
-### Model 1: XGBClassifier
-
-- The XGBClassifier is based on the gradient boosting algorithm, which is an ensemble method that combines multiple weak learners to produce a more powerful model.
-- Is a part of the XGBoost library, which is a popular open-source library for gradient boosting.
-- use_label_encoder=False: Disables the automatic label encoding inside XGBoost for version 1.3.0 and above.
-- eval_metric='logloss': Sets 'logloss' as the evaluation metric for binary classification.
-- device='gpu': Utilizes GPU for model training, enhancing speed.
-- enable_categorical=True: Allows direct processing of categorical features in the dataset.
-- objective='binary:logistic': Specifies the learning objective for binary classification outputting probabilities.
-- n_estimators=100: Number of boosting rounds or trees to build.
-- learning_rate=0.05: The factor by which to shrink the feature weights after each boosting round.
-- reg_alpha=0.1: Applies L1 regularization on weights, aiding in feature selection.
-- reg_lambda=1.0: Applies L2 regularization on weights to combat overfitting.
-
-#### XGBClassifier with Optuna 
-Optuna is a cutting-edge hyperparameter optimization framework that employs a Bayesian optimization technique to search the hyperparameter space. Unlike traditional grid search, which exhaustively tries all possible combinations, or random search, which randomly selects combinations within the search space, Optuna intelligently navigates the search space by considering the results of past trials.
-
-For our XGBoost classifier, a gradient boosting framework renowned for its performance and speed, the following key hyperparameters were considered:
+For our XGBoost classifier, a gradient boosting framework renowned for its performance and speed, the following key hyperparameters were considered:  
 
 - n_estimators: The number of trees in the ensemble.
 - max_depth: The maximum depth of the trees.
@@ -176,22 +109,16 @@ For our XGBoost classifier, a gradient boosting framework renowned for its perfo
 - subsample: The fraction of samples used to fit each tree.
 - colsample_bytree: The fraction of features used when constructing each tree.
 
-##### Execution
-Optuna creates a "study" which is a series of trials to evaluate the performance of the XGBoost model with different hyperparameters. For each trial, Optuna suggests a new set of hyperparameters, the model is trained on the training dataset, and then evaluated on the validation dataset. The F1 score is used as the evaluation metric because it provides a balance between precision and recall, which is particularly useful when dealing with imbalanced datasets.
+The optimization process resulted in a set of hyperparameters that achieved an improved F1 score compared to the baseline model. We observed a 10% improvement in the F1 score, indicating an improvement in the harmonic balance of precision and recall for the model.
 
-##### Results
-The optimization process resulted in a set of hyperparameters that achieved an improved F1 score compared to the baseline model. We observed an increase in the F1 score, indicating a significant improvement in the harmonic balance of precision and recall for the model.
+# Other models (Balanced RF, KNN, SVM, neural networks)
+We have built other models but the results are not ideal in terms of F1-score, which is our focus. For example, 
 
-##### Conclusion
-- Before and after using Optuna, we observe a 10% improvement in ROC accuracy, from F1 score of 0.31 to 0.35
-The application of Optuna for hyperparameter tuning of the XGBoost model has proven to be effective. It not only enhanced the model's predictive accuracy but also streamlined the hyperparameter tuning process. This approach can be replicated for other machine learning models to improve their performance on various tasks.
-
-#### Next Steps given more time in future implementations
-- Implement the optimized model in a production environment to assess the improvements in a real-world setting.
-- Explore the incorporation of additional hyperparameters and the use of more advanced Optuna features like pruners and samplers for further refinement.
-- Conduct additional optimization rounds as more data becomes available or as the characteristics of the data evolve over time.
-
-
+# Next Steps given more time in future implementations  
+Since we only had 2 days to work on this datathon, there are some approaches we would like to take if given more time. 
+- Experiment with more variations in data preprocessing / feature engineering 
+- Use more advanced Optuna features like pruners and samplers for further refinement
+- Ensembling methods
 
 
 ### Model 2 and 3. KNN and SVM
