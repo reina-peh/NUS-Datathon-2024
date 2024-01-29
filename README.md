@@ -113,6 +113,13 @@ The optimization process resulted in a set of hyperparameters that achieved an i
 
 # Other models (Balanced RF, KNN, SVM, neural networks)
 We have built other models but the results are not ideal in terms of F1-score, which is our focus. For instance, when we ran a Balanced Random Forest model, Recall improved significantly but Precision worsened significantly too (meaning there are more false positives)
+```
+ROC AUC Score: 0.8324309322229221
+Log Loss: 0.5365502384839375
+Precision: 0.12374581939799331
+Recall: 0.7350993377483444
+F1 Score: 0.21183206106870228
+```
 
 # Comparision with Best and Second-Best Iterations  
 Second-best iteration
