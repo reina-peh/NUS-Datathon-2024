@@ -21,7 +21,7 @@ Over the past 2-3 days, we have conducted extensive data analysis, data pre-proc
 4. SMOTE 
 5. XGClassifier + SelectFromModel feature selection method
 6. Optuna
-7. Other Models (Balanced RF, KNN, SVM)
+7. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
 ### 1. Data Exploration and Cleaning
 ### **Data Cleaning**
