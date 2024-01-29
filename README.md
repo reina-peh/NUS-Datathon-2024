@@ -25,7 +25,7 @@ Over the past 2-3 days, we have conducted extensive data analysis, data pre-proc
 7. Optuna
 8. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
-# 1. Data Exploration and Cleaning  
+## 1. Data Cleaning  
 
 ### Function 1: ```clean_data(data, target)```  
 
@@ -46,13 +46,13 @@ This function is dedicated to preprocessing the target column of the dataset. Th
 
 
 
-# 2. Feature Engineering
+## 2. Feature Engineering
 
 We have identified that age at which a customer purchases an insurance policy is important, hence we created a new column to calculate their age using ```min_occ_date``` and ```cltdob_fix```
 Train Test Split to divide a dataset into training and testing subsets for model training and evaluation
 
 
-# 3. Data Pre-Processing  
+## 3. Data Pre-Processing  
 
 **Data Imputation:**  
 To replace NaN or None Values
@@ -94,7 +94,7 @@ By combining under-sampling and over-sampling, we aimed to create a more balance
 
 By carefully addressing the class imbalance using this combined approach, we enhanced the model's ability to learn from a more representative dataset, thereby improving its predictive performance on unseen data.
 
-# 4. Model Building and Evaluation  
+## 4. Model Building and Evaluation  
 
 **Feature Selection**  
 **Understanding Key Influencers in High-Dimensional Data:**  
@@ -122,7 +122,7 @@ The goal was to distill the dataset to a manageable number of features without l
 **Outcome and Impact:**  
 By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior. This not only enhanced the model's performance by reducing noise and complexity but also aided in interpretability, allowing for more straightforward insights and decision-making based on the model's outputs.
 
-# 5. Evaluation Metrics: Precision, Recall, and F1 Score
+## 5. Evaluation Metrics: Precision, Recall, and F1 Score
 
 **Precision**  
 Accuracy of positive predictions  
