@@ -11,29 +11,16 @@ Notebook:
 # Problem Statement
 Singlife has identified a worrisome trend in the customer journey, where potential policyholders exhibit hesitation and disengagement during the insurance acquisition process. In response, Singlife aims to harness the power of its dataset to extract actionable insights that will elevate the overall customer experience. The challenge lies in dissecting the dataset to unearth key touchpoints responsible for customer drop-offs and pinpoint opportunities for optimizing the application process and tailoring communication. The ultimate objective is to predict and improve customer satisfaction and conversion rates, thus reinforcing Singlife's competitive edge in the market.
 
-
 # Data-Driven Approach
 Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our quantitative priority.
 
-**Data Analysis:**  
-We delve into the dataset to explore and understand its key features, gaining insights into the underlying patterns and distributions.
-
-**Handling Imbalanced Data:**  
-Strategies are implemented to effectively manage data imbalance, ensuring our model's robustness and accuracy.
-
-**Feature Selection:**  
-Through careful analysis, we identify and select the most impactful features that contribute significantly to our model's performance.
-
-**Model Training & Hyperparameter Tuning:**  
-We develop a predictive model, followed by meticulous tuning to enhance its predictive capabilities and ensure optimal performance.
-
-### Methodological Justifications and Detailed Explanations  
-In this project, we have employed a variety of data preprocessing and modeling techniques. Each method was selected based on specific characteristics of our dataset and the objectives of our analysis. To ensure clarity and transparency, we have provided detailed justifications for our methodological choices. These include, but are not limited to:
-1. Imputation Techniques
-2. Feature Selection
-3. Model Selection
-4. Parameter Tuning
-
+### Overview of Methods/Libraries 
+1. Feature Engineering 
+2. Imputation Techniques (SimpleImputer, IterativeImputer)
+3. RandomUnderSampler
+4. SMOTE 
+5. XGClassifier + SelectFromModel feature selection method
+6. Optuna 
 
 ### 1. Data Exploration and Cleaning
 ### **Data Cleaning**
