@@ -8,21 +8,25 @@ Team: **Team Zero**
 Notebook:  
 [Link to Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
 
-## Problem Statement
+# Problem Statement
 Singlife has observed a concerning trend in the customer journey: potential policyholders are expressing hesitation and eventual disengagement during the insurance acquisition process. To address this, Singlife seeks to leverage its dataset. The objective is to derive actionable insights from their data to enhance the customer experience. The challenge is to dissect the dataset to uncover the critical touchpoints that contribute to customer drop-off and identify opportunities to streamline the application process and personalise communication. The ultimate goal is to predict customer satisfaction and conversion rates, thereby bolstering Singlife's market position.
 
-### Data-Driven Approach
-Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our main quantitative objective.
+# Data-Driven Approach
+Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our quantitative priority.
 
-**Data Analysis:** We delve into the dataset to explore and understand its key features, gaining insights into the underlying patterns and distributions.
+**Data Analysis:**  
+We delve into the dataset to explore and understand its key features, gaining insights into the underlying patterns and distributions.
 
-**Handling Imbalanced Data:** Strategies are implemented to effectively manage data imbalance, ensuring our model's robustness and accuracy.
+**Handling Imbalanced Data:**  
+Strategies are implemented to effectively manage data imbalance, ensuring our model's robustness and accuracy.
 
-**Feature Selection:** Through careful analysis, we identify and select the most impactful features that contribute significantly to our model's performance.
+**Feature Selection:**  
+Through careful analysis, we identify and select the most impactful features that contribute significantly to our model's performance.
 
-**Model Training & Tuning:** We develop a predictive model, followed by meticulous tuning to enhance its predictive capabilities and ensure optimal performance.
+**Model Training & Hyperparameter Tuning:**  
+We develop a predictive model, followed by meticulous tuning to enhance its predictive capabilities and ensure optimal performance.
 
-### Methodological Justifications and Detailed Explanations
+### Methodological Justifications and Detailed Explanations  
 In this project, we have employed a variety of data preprocessing and modeling techniques. Each method was selected based on specific characteristics of our dataset and the objectives of our analysis. To ensure clarity and transparency, we have provided detailed justifications for our methodological choices. These include, but are not limited to:
 1. Imputation Techniques
 2. Feature Selection
