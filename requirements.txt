@@ -1,0 +1,10 @@
+pandas==1.5.3
+pyarrow==10.0.1
+pyarrow-hotfix==0.6
+regex==2023.6.3
+sklearn-pandas==2.2.0
+scikit-learn==1.2.2
+xgboost==2.0.3
+numpy==1.23.5
+imbalanced-learn==0.10.1
+optuna==3.5.0
