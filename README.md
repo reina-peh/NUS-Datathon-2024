@@ -12,7 +12,7 @@ Notebook:
 # Problem Statement
 Singlife has identified a worrisome trend in the customer journey, where potential policyholders exhibit hesitation and disengagement during the insurance acquisition process. In response, Singlife aims to harness the power of its dataset to extract actionable insights that will elevate the overall customer experience. The challenge lies in dissecting the dataset to unearth key touchpoints responsible for customer drop-offs and pinpoint opportunities for optimizing the application process and tailoring communication. The ultimate objective is to predict and improve customer satisfaction and conversion rates, thus reinforcing Singlife's competitive edge in the market.
 
-# Data-Driven Approach
+# Our ML Approach
 Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our quantitative priority.
 
 From conducting EDA, we observed 5 types of policies:  
