@@ -112,69 +112,26 @@ For our XGBoost classifier, a gradient boosting framework renowned for its perfo
 The optimization process resulted in a set of hyperparameters that achieved an improved F1 score compared to the baseline model. We observed a 10% improvement in the F1 score, indicating an improvement in the harmonic balance of precision and recall for the model.
 
 # Other models (Balanced RF, KNN, SVM, neural networks)
-We have built other models but the results are not ideal in terms of F1-score, which is our focus. For example, 
+We have built other models but the results are not ideal in terms of F1-score, which is our focus. For instance, when we ran a Balanced Random Forest model, Recall improved significantly but Precision worsened significantly too (meaning there are more false positives)
+
+# Comparision with Best and Second-Best Iterations  
+Second-best iteration
+```
+Average ROC AUC Score: 0.8495514162418356
+Average Log Loss: 0.1246570067320931
+Average Precision: 0.7382839768926726
+Average Recall: 0.13814695972129856
+Average F1 Score: 0.23216271250192205
+```
+Best iteration (Submitted)
+```
+Precision: 0.43037974683544306
+Recall: 0.384180790960452
+F1 Score: 0.4059701492537313
+```
 
 # Next Steps given more time in future implementations  
 Since we only had 2 days to work on this datathon, there are some approaches we would like to take if given more time. 
 - Experiment with more variations in data preprocessing / feature engineering 
 - Use more advanced Optuna features like pruners and samplers for further refinement
 - Ensembling methods
-
-
-### Model 2 and 3. KNN and SVM
-We've run the SVM (Support Vector Machine) and KNN (K-Nearest Neighbors) models on our dataset and here are the results interpreted in layman's terms:
-
-- ROC AUC Score (0.671): This score represents the model's ability to distinguish between the classes. A score of 1 means perfect distinction, while a score of 0.5 means the model is no better than random guessing. Our score is 0.671, which is better than a random guess but shows there is significant room for improvement.
-
-- Log Loss (0.174): This number tells us about the uncertainty of the model's predictions. Lower values are better, with 0 representing absolute certainty. Our model's log loss is 0.174, indicating that our predictions are fairly certain, but there could be some misclassifications.
-
-- Precision (0.636): Of all the instances where the model predicted the positive class, 63.6% were actually correct. This is a measure of accuracy for the positive predictions.
-
-- Recall (0.082): Out of all the actual positive instances, the model only correctly identified 8.2%. This means we're missing a lot of true positive instances.
-
-- F1 Score (0.148): This score is a balance between Precision and Recall. It's particularly useful when the class distribution is uneven. The low F1 score suggests the model is not very effective; it's neither precisely identifying true positives nor is it catching a high number of the actual positives.
-
-#### What This Means:
-- The model does an average job of ranking predictions but tends to be overly confident in its wrong predictions, indicated by a decent ROC AUC but a high Log Loss.
-- It's quite precise—if it says something is likely, it's worth checking out. However, it misses a lot of actual positive cases (low Recall), and thus, the F1 Score is low.
-- Essentially, the model is a conservative predictor, only flagging something as positive if it's really sure, but it is missing a lot of true positive cases in the process.
-
-
-
-
-### Model 4. Balanced Random Forest  
-
-![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/c319a205-f942-4191-a480-1caa4830fb31)  
-The Balanced Random Forest has helped in terms of Recall, possibly because it has been designed to better handle imbalanced classes by adjusting the training algorithm to focus more on the minority class. However, the trade-off here is Precision, leading to many false positives.
-
-ROC AUC Score (0.8320): This is quite a good score. It means that the model has a high chance of correctly distinguishing between the positive and negative classes. In other words, it can identify which cases are likely to be true positives versus true negatives.  
-
-Log Loss (0.5418): Log Loss is a measure of uncertainty where lower values are better. Your model has a moderate log loss, indicating some uncertainty in the predictions it's making.  
-
-Precision (0.1124): Precision is low, which tells us that when the model predicts a case as positive, it is correct only about 11.24% of the time. This suggests that there are quite a few false positives – instances where the model predicted the outcome would occur, but it didn't.  
-
-Recall (0.7682): This metric is quite high, indicating the model is very good at finding the true positive cases. In practical terms, it's catching most of the instances it should.  
-
-F1 Score (0.1961): Despite the high recall, the F1 score is still low because it takes into account both precision and recall. The low precision drags this score down, indicating that the model is not very balanced in its predictive performance.  
-
-
-
-
-
-
-![image](https://github.com/reina-peh/NUS-Datathon-2024-Team-Zero/assets/63966022/b7876757-fe1a-44df-a1aa-d33bad565e1a)  
-*XGBClassifier metrics*
-ROC AUC Score: Improved from 0.8320 with Balanced Random Forest to 0.8693 with XGBoost, indicating that the XGBoost model has a better overall ability to distinguish between the classes.
-
-Log Loss: Decreased from 0.5418 to 0.1263, showing that the XGBoost model has greater confidence in its predictions and a lower rate of uncertainty.
-
-Precision: Significantly increased from 0.1124 to 0.7619. This means that the XGBoost model is much more accurate when it predicts a positive class; there are fewer false positives.
-
-Recall: Decreased from 0.7682 to 0.1059. This suggests that while the XGBoost model is more precise, it's now missing a large number of actual positive cases. It has become more conservative, only predicting positives when it's very sure, leading to many false negatives.
-
-F1 Score: Decreased slightly from 0.1961 to 0.1860, which, despite the high precision, indicates a worse balance between precision and recall due to the drop in recall.
-
-In summary, the XGBoost model has improved in terms of being able to accurately predict the majority class, as indicated by the increased precision and reduced log loss. However, it has become less effective at identifying the minority class, which is usually the more important class to predict in imbalanced datasets, as shown by the lower recall and slightly lower F1 score.
-
-This comparison highlights a common trade-off in machine learning models between precision and recall. Improving one often comes at the expense of the other, especially in imbalanced datasets. The challenge is to find a balance that maximizes both, or to prioritize one over the other based on the specific needs of your application. If predicting the minority class is crucial, you might need to adjust the XGBoost model further or consider techniques like resampling, tailored loss functions, or ensemble methods that can maintain a higher recall without losing the gains in precision
-
