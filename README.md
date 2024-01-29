@@ -54,9 +54,10 @@ We believe that the age of clients influences their purchasing decisions, hence 
   
 ### Median Data Imputation  
 Total percentage of null values in the DataFrame: 22.6%  
-Our dataset contained many values, with 32 columns with > 90% null values and 83 columns with > 50% null values.  
+32 columns with > 90% null values  
+83 columns with > 50% null values  
 
-Since our data contained many features with right-skewed distributions, which is why we used median imputation as it is robust in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency and helps in preserving the original distribution of the dataset. 
+Since our data contained many features with right-skewed distributions, we used median imputation as it is robust in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency and helps in preserving the original distribution of the dataset. 
 
 ### Under-Over Sampling Technique  
 We implemented a combined under-over sampling strategy to address the class imbalance in our dataset. 
