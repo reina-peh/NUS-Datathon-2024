@@ -1,14 +1,18 @@
 # NUS-Datathon-2023
-Team Name : **TeamZero**
+![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
+![Language](https://img.shields.io/badge/Language-Python-green)
+
+Team: **Team Zero**
 <br>
 
-Notebook: [On Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
+Notebook:  
+[Link to Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
 
 ## Problem Statement
-Singlife has observed a concerning trend in the customer journey: potential policyholders are expressing hesitation and eventual disengagement during the insurance acquisition process. To address this, Singlife seeks to leverage its dataset. The objective is to derive actionable insights from this data to enhance the customer experience. The challenge is to dissect the dataset to uncover the critical touchpoints that contribute to customer drop-off and identify opportunities to streamline the application process and personalise communication. The ultimate goal is to predict customer satisfaction and conversion rates, thereby bolstering Singlife's market position.
+Singlife has observed a concerning trend in the customer journey: potential policyholders are expressing hesitation and eventual disengagement during the insurance acquisition process. To address this, Singlife seeks to leverage its dataset. The objective is to derive actionable insights from their data to enhance the customer experience. The challenge is to dissect the dataset to uncover the critical touchpoints that contribute to customer drop-off and identify opportunities to streamline the application process and personalise communication. The ultimate goal is to predict customer satisfaction and conversion rates, thereby bolstering Singlife's market position.
 
-### Datadriven Approach
-In our project, we extensively tested with various data cleaning methods and models to dive deep in the analysis of Singlife's dataset to enhance the customer experience and improve conversion rates. As such the notebook below along with the explanation depicts our efforts in creating the best dataset to be used to train our model, and making sure not to over or underfit the training data such that we can create the best outcome for the test results. 
+### Data-Driven Approach
+Over the past 2-3 days, we have conducted extensive data analysis, data pre-processing, model training steps to predict the outcomes of `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). There are 3 main evaluation metrics: Precision, Recall and F1-score and we have set the optimization of the F1-Score as our main quantitative objective.
 
 **Data Analysis:** We delve into the dataset to explore and understand its key features, gaining insights into the underlying patterns and distributions.
 
