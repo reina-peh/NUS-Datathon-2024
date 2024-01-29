@@ -1,5 +1,5 @@
 # NUS-Datathon-2023
-![Topic](https://img.shields.io/badge/Topic-Machine-Learning-blue)
+![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
 Team:  
