@@ -9,6 +9,8 @@ Team Zero
 Notebook:  
 [Link to Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
 
+Exploratory Data Analysis:
+`NUS Datathon 2024_second best iteration` notebook in past iterations folder
 
 # Overview  
 Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). Our team conducted in-depth EDA (refer to `NUS Datathon 2024_second best iteration` notebook in past iterations folder), then used a 12-step cleaning process to reduce the no. of features for model training. However, we decided to adopt a less rigorous data cleaning process with the SelectFromModel method as it produced a better F1-score. 
