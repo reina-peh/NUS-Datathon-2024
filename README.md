@@ -28,7 +28,7 @@ These metrics are particularly useful in scenarios where classes are imbalanced,
 2. Feature Engineering 
 3. Imputation Techniques (SimpleImputer, IterativeImputer)
 4. RandomUnderSampler
-5. SMOTE 
+5. SMOTENC  
 6. XGClassifier + SelectFromModel feature selection method
 7. Optuna
 8. Other Models (Balanced RF, logistic regression, KNN, SVM)
