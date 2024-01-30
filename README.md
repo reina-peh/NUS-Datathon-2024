@@ -11,7 +11,7 @@ Notebook:
 
 
 # Overview  
-Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt the SelectFromModel method with a less rigorous data cleaning process as it gave a better F1-score. 
+Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214) (a significant number of columns with object dtype actually contained numerical values). Our team conducted in-depth EDA (in `NUS Datathon 2024_second best iteration` notebook), then used a 12-step cleaning process to reduce the number of features for model training. However, we decided to adopt a less rigorous data cleaning process with the SelectFromModel method with as it produced a better F1-score. 
 
 **Evaluation Metrics:**  
 1. Precision  
