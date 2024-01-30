@@ -9,7 +9,7 @@ Team Zero
 Notebook:  
 [Link to Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
 
-Exploratory Data Analysis:
+Exploratory Data Analysis:  
 `NUS Datathon 2024_second best iteration` notebook in past iterations folder
 
 # Overview  
