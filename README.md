@@ -13,7 +13,7 @@ Exploratory Data Analysis:
 `NUS Datathon 2024_second best iteration` notebook in past_iterations folder
 
 # Overview  
-Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). Our team conducted in-depth EDA (refer to `NUS Datathon 2024_second best iteration` notebook in past iterations folder), then used a 12-step cleaning process + SelectFromModel to reduce the no. of features for model training. However, we decided to adopt a less rigorous data cleaning process + SelectFromModel method to reduce the no. of features as it produced a better F1-score. 
+Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). Our team conducted in-depth EDA (refer to `NUS Datathon 2024_second best iteration` notebook in past iterations folder), then used a 12-step cleaning process + SelectFromModel to reduce the no. of features for model training. However, we decided to adopt a less rigorous data cleaning process + SelectFromModel method to reduce the no. of features as it produced a better F1-score (our evaluation metric priority). 
 
 **Evaluation Metrics:**  
 1. Precision  
@@ -122,6 +122,8 @@ F1 Score: 0.21183206106870228
 ```
 
 # Comparision with Best and Second-Best Iterations  
+Even though the Precision (and ROC AUC & logloss) were better in the second-best iteration, we submitted the iteration with the better F1-score as it indicates a more balanced performance in predicting both the majority and minority classes (which is what we want to achieve). 
+
 Second-best iteration  
 ```
 Average ROC AUC Score: 0.8495514162418356
