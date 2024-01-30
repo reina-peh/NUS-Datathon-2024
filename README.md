@@ -93,11 +93,11 @@ Recursive Feature Elimination (RFE) is inherently iterative and computationally 
 While PCA is effective for reducing dimensionality, it transforms the original features into principal components, which can be challenging to interpret, especially in a business context where understanding specific feature influences is crucial. SelectFromModel maintains the original features, making the results more interpretable and actionable.
 
 **Outcome and Impact:**  
-By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior. 
+By implementing this feature selection strategy, we were able to significantly reduce the feature space from over 200 to 40, focusing on the most relevant variables that influence customer behavior.  
 
 
 # XGBClassifier with Optuna  
-Optuna is a hyperparameter optimization framework that employs a Bayesian optimization technique to search the hyperparameter space. Unlike traditional grid search, which exhaustively tries all possible combinations, or random search, which randomly selects combinations within the search space, Optuna intelligently navigates the search space by considering the results of past trials.
+Optuna is a hyperparameter optimization framework that employs a Bayesian optimization technique to search the hyperparameter space. Unlike traditional grid search, which exhaustively tries all possible combinations, or random search, which randomly selects combinations within the search space, Optuna intelligently navigates the search space by considering the results of past trials.  
 
 For our XGBoost classifier, a gradient boosting framework renowned for its performance and speed, the following key hyperparameters were considered:  
 
@@ -105,12 +105,12 @@ For our XGBoost classifier, a gradient boosting framework renowned for its perfo
 - max_depth: The maximum depth of the trees.
 - learning_rate: The step size shrinkage used to prevent overfitting.
 - subsample: The fraction of samples used to fit each tree.
-- colsample_bytree: The fraction of features used when constructing each tree.
+- colsample_bytree: The fraction of features used when constructing each tree.  
 
-The optimization process resulted in a set of hyperparameters that achieved a 10% improvement in the F1 score from the baseline model, indicating a more harmonic balance of precision and recall for the model.
+The optimization process resulted in a set of hyperparameters that achieved a 10% improvement in the F1 score from the baseline model, indicating a more harmonic balance of precision and recall for the model.  
 
-# Other models (Balanced RF, KNN, SVM, neural networks)
-We have built other models but the results were not ideal in terms of F1-score, which is our focus. For instance, when we ran a Balanced Random Forest model, Recall improved significantly but Precision worsened significantly too (meaning there are more false positives)
+# Other models  
+We have built other models (Balanced RF, KNN, SVM, neural networks) but the results were not ideal in terms of F1-score, which is our focus. For instance, when we ran a Balanced Random Forest model, Recall improved significantly but Precision worsened significantly too (meaning there are more false positives)  
 ```
 ROC AUC Score: 0.8324309322229221
 Log Loss: 0.5365502384839375
@@ -120,7 +120,7 @@ F1 Score: 0.21183206106870228
 ```
 
 # Comparision with Best and Second-Best Iterations  
-Second-best iteration
+Second-best iteration  
 ```
 Average ROC AUC Score: 0.8495514162418356
 Average Log Loss: 0.1246570067320931
@@ -128,14 +128,14 @@ Average Precision: 0.7382839768926726
 Average Recall: 0.13814695972129856
 Average F1 Score: 0.23216271250192205
 ```
-Best iteration (Submitted)
+Best iteration (Submitted)  
 ```
 Precision: 0.43037974683544306
 Recall: 0.384180790960452
 F1 Score: 0.4059701492537313
 ```
 
-# Next Steps given more time in future implementations  
+# Next Steps  
 Since we only had 2 days to work on this datathon, there are some approaches we would like to take if given more time. 
 - Experiment with more variations in data preprocessing / feature engineering 
 - Use more advanced Optuna features like pruners and samplers for further refinement
