@@ -2,26 +2,25 @@
 ![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
-Team:  
-Team Zero
-<br>
-
-Notebook:  
-[Link to Google Colab](https://colab.research.google.com/drive/1ydC7IRMoiWxvoopWF1zFcO3YInFqifj-?usp=sharing)
 
 Exploratory Data Analysis:  
 `NUS Datathon 2024_second best iteration` notebook in past_iterations folder
 
-# Overview  
+# Predicting Singlife Clients' Purchasing Behaviors With Python
 Over a span of 2 days, we built machine learning models to predict the outcomes of the target `f_purchase_lh` using Python. There were a total of 304 columns in the parquet file provided by Singlife, which contained 3 different dtypes: float64(44), int64(46) and object(214). Our team conducted in-depth EDA (refer to `NUS Datathon 2024_second best iteration` notebook in past iterations folder), then used a 12-step cleaning process + SelectFromModel to reduce the no. of features for model training. However, we decided to adopt a less rigorous data cleaning process + SelectFromModel method to reduce the no. of features as it produced a better F1-score (our evaluation metric priority). 
 
 **Evaluation Metrics:**  
 1. Precision  
 2. Recall  
-3. F1 Score
+3. F1-Score
 
 These metrics are particularly useful in scenarios where classes are imbalanced, which is the case for our dataset (because of huge differences between Precision and Recall values in past iterations). 
 
+# Contributors
+* Reina Peh [LinkedIn](https://www.linkedin.com/in/reinapeh/)
+* Ryan Tan [LinkedIn](https://www.linkedin.com/in/ryantzr/)  
+* Zhang Bowen [LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/)
+* Claudia Lai [LinkedIn](https://www.linkedin.com/in/claudialaijy/)
 
 # Our Approach
 1. Data Cleaning 
