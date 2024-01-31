@@ -31,7 +31,7 @@ These metrics are particularly useful in scenarios where classes are imbalanced,
 5. SMOTENC  
 6. XGClassifier
 7. SelectFromModel feature selection method
-8. Optuna for hyperparameter optimization  
+8. Optuna  
 9. Other Models (Balanced RF, logistic regression, KNN, SVM)
 
 # Data Cleaning  
