@@ -29,10 +29,10 @@ These metrics are particularly useful in scenarios where classes are imbalanced,
 3. Imputation Techniques (SimpleImputer, IterativeImputer)
 4. RandomUnderSampler
 5. SMOTENC  
-6. XGClassifier
-7. SelectFromModel feature selection method
+6. XGClassifier  
+7. SelectFromModel Feature Selection Method
 8. Optuna  
-9. Other Models (Balanced RF, logistic regression, KNN, SVM)
+9. Other Models (Balanced RF, Logistic Regression, KNN, SVM)
 
 # Data Cleaning  
 
