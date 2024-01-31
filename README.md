@@ -1,4 +1,4 @@
-# NUS-Datathon-2024
+# NUS Datathon 2024
 ![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
