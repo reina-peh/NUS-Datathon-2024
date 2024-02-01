@@ -3,8 +3,8 @@
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
 
-Exploratory Data Analysis:  
-`NUS Datathon 2024_second best iteration` notebook in past_iterations folder
+EDA:  
+`NUS Datathon 2024_EDA_Second Best Iteration`  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python
 In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. Our team conducted in-depth EDA (refer to `NUS Datathon 2024_second best iteration` notebook in past iterations folder) on the dataset provided by Singlife, which contained 304 columns. We initially used a 12-step cleaning process + SelectFromModel to reduce the no. of features for model training, but decided to adopt a less rigorous data cleaning process + SelectFromModel as it produced a better F1-score (our evaluation metric priority). 
