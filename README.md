@@ -2,7 +2,7 @@
 ![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
-**Team number:** #219  
+**Team number:** 219  
 **Team name:** Team Zero  
 
 **Team Members / Contributors:**
