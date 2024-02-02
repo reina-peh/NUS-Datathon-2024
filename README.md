@@ -7,7 +7,7 @@ EDA:
 `NUS Datathon 2024_EDA_Past Iteration`  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python
-In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. Our team conducted in-depth EDA (refer to `NUS Datathon 2024_second best iteration` notebook in past iterations folder) on the dataset provided by Singlife, which contained 304 columns. We initially used a 12-step cleaning process + SelectFromModel to reduce the no. of features for model training, but decided to adopt a less rigorous data cleaning process + SelectFromModel as it produced a better F1-score (our evaluation metric priority). 
+In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. The dataset provided by Singlife contained 304 columns and 17,992 rows. Our team's goal is to optimize the F1-score. 
 
 **Evaluation Metrics:**  
 1. Precision  
