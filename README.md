@@ -117,7 +117,7 @@ The optimization process resulted in a set of hyperparameters that achieved a 10
 
 # Local Interpretable Model-Agnostic Explanations (LIME) 
 LIME fits a simple linear model to approximate how the true complex model behaves  
-![image](https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af)  
+<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500">  
 
 We ran LIME 100 times and find the average weights
 
