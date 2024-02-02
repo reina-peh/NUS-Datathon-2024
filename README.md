@@ -2,25 +2,24 @@
 ![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
+**Team number:** Team #219  
+**Team name:** Team Zero  
 
-EDA:  
-`NUS Datathon 2024_EDA_Past Iteration`  
+**Team Members / Contributors:**
+* Reina Peh [LinkedIn](https://www.linkedin.com/in/reinapeh/)
+* Ryan Tan [LinkedIn](https://www.linkedin.com/in/ryantzr/)  
+* Zhang Bowen [LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/)
+* Claudia Lai [LinkedIn](https://www.linkedin.com/in/claudialaijy/)  
+ 
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python
-In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. The dataset provided by Singlife contained 304 columns and 17,992 rows. Our team's goal is to optimize the F1-score. 
+In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. The dataset provided by Singlife contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past Iteration` file. 3 main metrics are used for model performance evaluation and they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because of huge differences between Precision and Recall values in past iterations). 
 
 **Evaluation Metrics:**  
 1. Precision  
 2. Recall  
-3. F1-Score
+3. F1-Score (our priority)
 
-These metrics are particularly useful in scenarios where classes are imbalanced, which is the case for our dataset (because of huge differences between Precision and Recall values in past iterations). 
-
-# Contributors
-* Reina Peh [LinkedIn](https://www.linkedin.com/in/reinapeh/)
-* Ryan Tan [LinkedIn](https://www.linkedin.com/in/ryantzr/)  
-* Zhang Bowen [LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/)
-* Claudia Lai [LinkedIn](https://www.linkedin.com/in/claudialaijy/)
 
 # Our Approach
 1. Data Cleaning 
