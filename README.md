@@ -20,7 +20,6 @@ In this datathon, we built ML models using Python to predict the outcomes of the
 2. Recall  
 3. F1-Score (our priority)
 
-
 # Our Approach
 1. Data Cleaning 
 2. Feature Engineering 
@@ -29,8 +28,8 @@ In this datathon, we built ML models using Python to predict the outcomes of the
 5. SMOTENC  
 6. XGClassifier Model  
 7. SelectFromModel Feature Selection Method
-8. Optuna  
-9. Other Models (Balanced RF, Logistic Regression, KNN, SVM)
+8. Optuna
+9. LIME (Explainable AI)
 
 # Data Cleaning  
 
@@ -58,7 +57,9 @@ Total percentage of null values in the DataFrame: 22.6%
 32 columns with > 90% null values  
 83 columns with > 50% null values  
 
-Since our data contained many features with right-skewed distributions, we used median imputation as it is robust in the presence of outliers and skewed data distributions. Unlike the mean, which can be heavily influenced by extreme values, the median provides a more representative value of the central tendency and helps in preserving the original distribution of the dataset. 
+![plot1png](https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/857c385f-78af-495d-a6e5-b757cea9fb72)
+
+Since our data contained many features with 0 and 1 values, and also many features with right-skewed distributions, we adopted median data imputation to fill the null values. This is because median imputation provides more representative values for features with only 0 and 1 values, and is also robust in the presence of skewed data distributions and outliers.
 
 ### Under-Over Sampling Technique  
 We implemented a combined under-over sampling strategy to address the class imbalance in our dataset. 
@@ -110,33 +111,15 @@ For our XGBoost classifier, a gradient boosting framework renowned for its perfo
 
 The optimization process resulted in a set of hyperparameters that achieved a 10% improvement in the F1 score from the baseline model, indicating a more harmonic balance of precision and recall for the model.  
 
-# Other models  
-We have built other models (Balanced RF, KNN, SVM, neural networks) but the results were not ideal in terms of F1-score, which is our focus. For instance, when we ran a Balanced Random Forest model, Recall improved significantly but Precision worsened significantly too (meaning there are more false positives)  
-```
-ROC AUC Score: 0.8324309322229221
-Log Loss: 0.5365502384839375
-Precision: 0.12374581939799331
-Recall: 0.7350993377483444
-F1 Score: 0.21183206106870228
-```
+**Our Results**  
+<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6eed42b1-40da-43ed-a73e-2147b91192b9" width="500">  
 
-# Comparision with Best and Second-Best Iterations  
-Even though the Precision (and ROC AUC & logloss) were better in the second-best iteration, we submitted the iteration with the better F1-score as it indicates a more balanced performance in predicting both the majority and minority classes (which is what we want to achieve). 
 
-Second-best iteration  
-```
-Average ROC AUC Score: 0.8495514162418356
-Average Log Loss: 0.1246570067320931
-Average Precision: 0.7382839768926726
-Average Recall: 0.13814695972129856
-Average F1 Score: 0.23216271250192205
-```
-Best iteration (Submitted)  
-```
-Precision: 0.43037974683544306
-Recall: 0.384180790960452
-F1 Score: 0.4059701492537313
-```
+# Local Interpretable Model-Agnostic Explanations (LIME) 
+LIME fits a simple linear model to approximate how the true complex model behaves  
+![image](https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af)  
+
+We ran LIME 100 times and find the average weights
 
 # Next Steps  
 Since we only had 2 days to work on this datathon, there are some approaches we would like to take if given more time. 
