@@ -8,3 +8,4 @@ xgboost==2.0.3
 numpy==1.23.5
 imbalanced-learn==0.10.1
 optuna==3.5.0
+lime==0.2.0.1
