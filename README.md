@@ -13,7 +13,7 @@
  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python
-In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. The dataset provided by Singlife contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past Iteration` file. 3 main metrics are used for model performance evaluation and they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because of huge differences between Precision and Recall values in past iterations). 
+In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. The dataset provided by Singlife contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past Iteration` file. 3 main metrics are used for model performance evaluation and they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority target class took up only 3%). 
 
 **Evaluation Metrics:**  
 1. Precision  
