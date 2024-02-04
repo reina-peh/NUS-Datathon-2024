@@ -117,7 +117,9 @@ Reference:
 Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime  
 
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/c8519048-2d9a-49b3-a1ee-8aca78a0d976" width="500">  
+<br>
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/d0afbca7-0758-49af-9236-86f0f113e458" width="500">  
+
 In our study, we applied LIME 100 times across different instances, averaging the explanation weights to counteract the randomness in data perturbation and ensure more consistent insights. This method helps pinpoint the features most impactful to the model's predictions, providing a stable and clear understanding of its behavior. The averaging process across multiple LIME iterations reduces variability, allowing us to identify and rely on the consistent influence of specific features on the model's decisions.  
 
 # Next Steps  
