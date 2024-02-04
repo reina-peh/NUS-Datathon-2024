@@ -114,8 +114,13 @@ The optimization process resulted in a set of hyperparameters that achieved a 10
 
 
 # Local Interpretable Model-Agnostic Explanations (LIME) 
-We ran LIME 100 times and find the average weights  
-LIME fits a simple linear model to approximate how the true complex model behaves  
+Local Interpretable Model-Agnostic Explanations (LIME) is a technique designed to explain the predictions of complex machine learning models. It works by approximating the model with a simpler, interpretable model around the instance being explained, thereby providing insights into how the model makes its decisions. LIME is particularly useful for shedding light on "black box" models, making their predictions more understandable and trustworthy. This approach helps in identifying the features that significantly influence the model's predictions, enhancing transparency and facilitating better decision-making based on these predictions.
+
+In our analysis, we employed Local Interpretable Model-Agnostic Explanations (LIME) to gain insights into the decision-making process of a complex machine learning model. By running LIME 100 times on various instances and averaging the resulting weights, we aimed to stabilize and ensure the reliability of the explanations provided.
+
+LIME works by creating a simple, interpretable model (such as a linear model) that approximates the behavior of the complex model in the vicinity of the instance being explained. This process involves perturbing the input data, making predictions with the complex model on these perturbed instances, and then using these predictions to train the simpler model.
+
+The rationale behind running LIME 100 times and averaging the weights is to mitigate the variability that can arise from the randomness in the data perturbation process. Each run of LIME may produce slightly different explanations due to the generation of different perturbed samples. By averaging the weights across multiple runs, we can smooth out these variations, leading to more stable and representative explanations of how the complex model behaves on average. This approach helps in identifying consistent patterns and feature importances that are robust across multiple evaluations, providing a clearer and more reliable understanding of the model's decision-making process.
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500">  
 Reference: Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime
 
