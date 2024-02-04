@@ -2,23 +2,27 @@
 ![Topic](https://img.shields.io/badge/Topic-MachineLearning-blue)
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
-**Team number:** 219  
-**Team name:** Team Zero  
+> **Achievement 🏆 :**  
+> 2nd Place (out of over 800 participants)
+
+This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society and lead data scientists from Singlife.
+
+**Team Number:** 219  
+**Team Name:** Team Zero  
 
 **Team Members / Contributors:**
-* Reina Peh [LinkedIn](https://www.linkedin.com/in/reinapeh/)
-* Ryan Tan [LinkedIn](https://www.linkedin.com/in/ryantzr/)  
-* Zhang Bowen [LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/)
-* Claudia Lai [LinkedIn](https://www.linkedin.com/in/claudialaijy/)  
- 
+* Reina Peh ([LinkedIn](https://www.linkedin.com/in/reinapeh/))
+* Ryan Tan ([LinkedIn](https://www.linkedin.com/in/ryantzr/))  
+* Zhang Bowen ([LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/))
+* Claudia Lai ([LinkedIn](https://www.linkedin.com/in/claudialaijy/))  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python
-In this datathon, we built ML models using Python to predict the outcomes of the target `f_purchase_lh`. The dataset provided by Singlife contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past Iteration` file. 3 main metrics are used for model performance evaluation and they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority target class took up only 3-4%). 
+Our goal is to predict the outcomes of the target `f_purchase_lh` using the dataset provided by Singlife, which contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA` file. 3 main model performance evaluation metrics were used as they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority class took up only 3-4% of the target column). 
 
 **Evaluation Metrics:**  
 1. Precision  
 2. Recall  
-3. F1-Score (our priority)
+3. F1-Score (our quantitative priority) 
 
 # Our Approach
 1. Data Cleaning 
@@ -57,23 +61,17 @@ Total percentage of null values in the DataFrame: 22.6%
 32 columns with > 90% null values  
 83 columns with > 50% null values  
 
-![plot1png](https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/857c385f-78af-495d-a6e5-b757cea9fb72)
 
 Since our data contained many features with 0 and 1 values, and also many features with right-skewed distributions, we adopted median data imputation to fill the null values. This is because median imputation provides more representative values for features with only 0 and 1 values, and is also robust in the presence of skewed data distributions and outliers.
 
 ### Under-Over Sampling Technique  
-We implemented a combined under-over sampling strategy to address the class imbalance in our dataset. 
+We implemented a combined under-over sampling strategy to create a more balanced dataset to improve our model's ability to predict the minority class instances without losing significant information.  
 
 **Under-Sampling**  
 We first applied Random Under-Sampling to reduce the size of the overrepresented class. This approach helps in balancing the class distribution and reducing the training dataset size, which can be beneficial for computational efficiency.
 
 **Over-Sampling with SMOTENC**  
-After under-sampling, we used SMOTENC (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) for over-sampling the minority class. Unlike basic over-sampling techniques, SMOTENC generates synthetic samples for the minority class in a more sophisticated manner, considering both nominal and continuous features.
-
-**Combining Both Techniques**  
-By combining under-sampling and over-sampling, we aimed to create a more balanced dataset without losing significant information. This combination helps in improving the model's performance, especially its ability to predict minority class instances.  
-<br>
-By carefully addressing the class imbalance using this combined approach, we have enhanced our model's ability to learn from a more representative dataset, thereby improving its predictive performance on unseen data.
+After under-sampling, we used SMOTENC (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) for over-sampling the minority class. Unlike basic over-sampling techniques, SMOTENC generates synthetic samples for the minority class in a more sophisticated manner, considering both nominal and continuous features.  
 
 # Feature Selection / ML Model  
 One of our primary challenges was to decipher the most influential factors from a high-dimensional dataset that originally contained over 300 columns (200+ after data cleaning).
@@ -119,11 +117,9 @@ The optimization process resulted in a set of hyperparameters that achieved a 10
 We ran LIME 100 times and find the average weights  
 LIME fits a simple linear model to approximate how the true complex model behaves  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500">  
-Reference link: https://paperswithcode.com/method/lime  
+Reference: Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime
 
 # Next Steps  
-Since we only had 2 days to work on this datathon, there are some approaches we would like to take if given more time. 
-- Experiment with more variations in data preprocessing / feature engineering 
-- Use more advanced Optuna features like pruners and samplers for further refinement
-- Try other oversampling techniques like ADASYN, which adaptively generates minority samples according to their distributions
-- Ensembling methods
+Since we only had 2 days to work on this datathon, there are some approaches we would like to take if given more time.  
+* Use more advanced Optuna features like pruners and samplers for further refinement
+* Use other oversampling techniques like ADASYN, which adaptively generates minority samples according to their distributions
