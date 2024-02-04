@@ -118,7 +118,8 @@ Local Interpretable Model-Agnostic Explanations (LIME) elucidates the decision-m
 
 In our study, we applied LIME 100 times across different instances, averaging the explanation weights to counteract the randomness in data perturbation and ensure more consistent insights. This method helps pinpoint the features most impactful to the model's predictions, providing a stable and clear understanding of its behavior. The averaging process across multiple LIME iterations reduces variability, allowing us to identify and rely on the consistent influence of specific features on the model's decisions.
 
-<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500">  
+<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500"> 
+<br>
 Reference: Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime
 
 # Next Steps  
