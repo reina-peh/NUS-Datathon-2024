@@ -109,7 +109,6 @@ The optimization process resulted in a set of hyperparameters that achieved a 10
 **Our Results**  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6eed42b1-40da-43ed-a73e-2147b91192b9" width="500">  
 
-
 # Local Interpretable Model-Agnostic Explanations (LIME) 
 Local Interpretable Model-Agnostic Explanations (LIME) elucidates the decision-making of complex machine learning models by approximating them with simpler, interpretable models around specific instances. This technique demystifies "black box" models, making their predictions transparent and aiding in better decision-making.  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500"> 
@@ -117,10 +116,9 @@ Local Interpretable Model-Agnostic Explanations (LIME) elucidates the decision-m
 Reference:  
 Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime  
 
-In our study, we applied LIME 100 times across different instances, averaging the explanation weights to counteract the randomness in data perturbation and ensure more consistent insights. This method helps pinpoint the features most impactful to the model's predictions, providing a stable and clear understanding of its behavior. The averaging process across multiple LIME iterations reduces variability, allowing us to identify and rely on the consistent influence of specific features on the model's decisions.  
-
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/c8519048-2d9a-49b3-a1ee-8aca78a0d976" width="500">  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/d0afbca7-0758-49af-9236-86f0f113e458" width="500">  
+In our study, we applied LIME 100 times across different instances, averaging the explanation weights to counteract the randomness in data perturbation and ensure more consistent insights. This method helps pinpoint the features most impactful to the model's predictions, providing a stable and clear understanding of its behavior. The averaging process across multiple LIME iterations reduces variability, allowing us to identify and rely on the consistent influence of specific features on the model's decisions.  
 
 # Next Steps  
 Since we only had 2-3 days to work on this datathon, here are some approaches we would like to take if given more time:   
