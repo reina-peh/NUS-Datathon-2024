@@ -51,7 +51,7 @@ Our goal is to predict the outcomes of the target `f_purchase_lh` using the data
 This function is dedicated to preprocessing the target column of the dataset. 
 
 
-# Data Pre-Processing / Feature Engineering
+# Data Pre-Processing  
 
 ### client_age
 We believe that the age of clients influences their purchasing decisions, hence we added a new column to contain values calculated by subtracting ```min_occ_date``` by ```cltdob_fix```
@@ -74,7 +74,7 @@ We first applied Random Under-Sampling to reduce the size of the overrepresented
 **Over-Sampling with SMOTENC**  
 After under-sampling, we used SMOTENC (Synthetic Minority Over-sampling Technique for Nominal and Continuous data) for over-sampling the minority class. Unlike basic over-sampling techniques, SMOTENC generates synthetic samples for the minority class in a more sophisticated manner, considering both nominal and continuous features.  
 
-# Feature Selection / ML Model  
+# ML Model & Feature Selection  
 One of our primary challenges was to decipher the most influential factors from a high-dimensional dataset that originally contained over 300 columns (200+ after data cleaning).
 
 ### Integrating XGBClassifier with SelectFromModel
@@ -90,7 +90,7 @@ The SelectFromModel method was applied in tandem with the XGBClassifier. This me
 **Computational Efficiency:**  
 Recursive Feature Elimination (RFE) is inherently iterative and computationally demanding, especially with a large number of features. In contrast, SelectFromModel offers a more computationally efficient alternative.
 
-**Preserving Interpretability with PCA Limitations:**  
+**Preserving Interpretability:**  
 While PCA is effective for reducing dimensionality, it transforms the original features into principal components, which can be challenging to interpret, especially in a business context where understanding specific feature influences is crucial. SelectFromModel maintains the original features, making the results more interpretable and actionable.  
 
 # XGBClassifier with Optuna  
@@ -104,20 +104,19 @@ For our XGBoost classifier, the following key hyperparameters were considered:
 - `subsample`: The fraction of samples used to fit each tree.
 - `colsample_bytree`: The fraction of features used when constructing each tree.  
 
+### Our Results  
 The optimization process resulted in a set of hyperparameters that achieved a 10% improvement in the F1 score from the baseline model, indicating a more harmonic balance of precision and recall for the model.  
 
-**Our Results**  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6eed42b1-40da-43ed-a73e-2147b91192b9" width="500">  
 
 # Local Interpretable Model-Agnostic Explanations (LIME) 
 Local Interpretable Model-Agnostic Explanations (LIME) elucidates the decision-making of complex machine learning models by approximating them with simpler, interpretable models around specific instances. This technique demystifies "black box" models, making their predictions transparent and aiding in better decision-making.  
-<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500"> 
-<br>
+<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6a20fe01-15ff-4b14-925c-3c1d6f4aa8af" width="500">  
 Reference:  
 Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime  
-
-<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/c8519048-2d9a-49b3-a1ee-8aca78a0d976" width="500">  
 <br>
+<br>
+<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/c8519048-2d9a-49b3-a1ee-8aca78a0d976" width="500">  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/d0afbca7-0758-49af-9236-86f0f113e458" width="500">  
 
 In our study, we applied LIME 100 times across different instances, averaging the explanation weights to counteract the randomness in data perturbation and ensure more consistent insights. This method helps pinpoint the features most impactful to the model's predictions, providing a stable and clear understanding of its behavior. The averaging process across multiple LIME iterations reduces variability, allowing us to identify and rely on the consistent influence of specific features on the model's decisions.  
