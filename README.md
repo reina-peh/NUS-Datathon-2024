@@ -116,6 +116,7 @@ Reference:
 Papers with Code - LIME Explained. (2016). https://paperswithcode.com/method/lime  
 <br>
 <br>
+### Applying LIME  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/c8519048-2d9a-49b3-a1ee-8aca78a0d976" width="500">  
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/d0afbca7-0758-49af-9236-86f0f113e458" width="500">  
 
