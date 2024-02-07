@@ -8,7 +8,6 @@
 This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society and lead data scientists from Singlife.
 
 **Team Number:** 219  
-
 **Team Name:** Team Zero  
 
 **Team Members / Contributors:**
@@ -17,7 +16,8 @@ This competition is the National University of Singapore's annual Data Science h
 * Zhang Bowen ([LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/))
 * Claudia Lai ([LinkedIn](https://www.linkedin.com/in/claudialaijy/))  
 <br>
-# Predicting Singlife Clients' Purchasing Behaviors With Python
+
+# Predicting Singlife Clients' Purchasing Behaviors With Python  
 Our goal is to predict the outcomes of the target `f_purchase_lh` using the dataset provided by Singlife, which contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past_Iteration` file. 3 main model performance evaluation metrics were used as they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority class took up only 3-4% of the target column). 
 
 **Evaluation Metrics:**  
