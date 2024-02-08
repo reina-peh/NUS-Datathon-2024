@@ -8,6 +8,7 @@
 This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society and lead data scientists from Singlife.
 
 **Team Number:** 219  
+
 **Team Name:** Team Zero  
 
 **Team Members / Contributors:**
@@ -15,7 +16,6 @@ This competition is the National University of Singapore's annual Data Science h
 * Ryan Tan ([LinkedIn](https://www.linkedin.com/in/ryantzr/))  
 * Zhang Bowen ([LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/))
 * Claudia Lai ([LinkedIn](https://www.linkedin.com/in/claudialaijy/))  
-<br>
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python  
 Our goal is to predict the outcomes of the target `f_purchase_lh` using the dataset provided by Singlife, which contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past_Iteration` file. 3 main model performance evaluation metrics were used as they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority class took up only 3-4% of the target column). 
@@ -106,7 +106,7 @@ For our XGBoost classifier, the following key hyperparameters were considered:
 - `colsample_bytree`: The fraction of features used when constructing each tree.  
 
 ### Our Results  
-The optimization process resulted in a set of hyperparameters that achieved a 10% improvement in the F1 score from the baseline model, indicating a more harmonic balance of precision and recall for the model.  
+The optimization process resulted in a set of hyperparameters that achieved an approximately 10% improvement in the F1-score from the baseline model, indicating a more harmonic balance of precision and recall for the model.  
 
 <img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/6eed42b1-40da-43ed-a73e-2147b91192b9" width="500">  
 
