@@ -3,7 +3,7 @@
 ![Language](https://img.shields.io/badge/Language-Python-green)
 
 > **Achievement 🏆 :**  
-> 2nd Place (out of over 800 participants)
+> 2nd Place (out of over 900 participants)
 
 This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society and lead data scientists from Singlife.
 
