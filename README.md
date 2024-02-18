@@ -5,7 +5,7 @@
 > **Achievement 🏆 :**  
 > 2nd Place (out of over 900 participants)
 
-This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society, data scientist and senior machine learning engineer from Singlife.
+This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society, a data scientist, and a senior machine learning engineer from Singlife.
 
 **Team Number:** 219  
 
