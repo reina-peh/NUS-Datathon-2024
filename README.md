@@ -18,7 +18,7 @@ This competition is the National University of Singapore's annual Data Science h
 * Claudia Lai ([LinkedIn](https://www.linkedin.com/in/claudialaijy/))  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python  
-Our goal is to predict the outcomes of the target `f_purchase_lh` using the dataset provided by Singlife, which contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past_Iteration` file. 3 main model performance evaluation metrics were used as they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority class took up only 3-4% of the target column). 
+Our goal is to predict the outcomes of the target `f_purchase_lh` using the dataset provided by Singlife, which contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past_Iteration` file. 3 main model performance evaluation metrics were used as they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority class took up only 3.95% of the target column). 
 
 **Evaluation Metrics:**  
 1. Precision  
