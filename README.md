@@ -5,7 +5,7 @@
 > **Achievement 🏆 :**  
 > 2nd Place (out of over 900 participants)
 
-This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society and lead data scientists from Singlife.
+This competition is the National University of Singapore's annual Data Science hackathon where participants build machine learning models to tackle real-life business cases of corporate partners. Our team was judged by both NUS Statistics and Data Science Society, data scientist and senior machine learning engineer from Singlife.
 
 **Team Number:** 219  
 
@@ -62,8 +62,8 @@ Total percentage of null values in the DataFrame: 22.6%
 32 columns with > 90% null values  
 83 columns with > 50% null values  
 
-Skewed Distributions  
-<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/ba88e5ba-5dbb-4059-950c-f58180cd24cc" width="500">  
+**Skewed Distributions**  
+<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/07a9b03c-f0ba-46d7-8b96-26228bd58ff9" width="500">  
 Since our data contained some features with right-skewed distributions, and many features with binary values (0s and 1s), we adopted median data imputation to fill the null values. This is because median imputation provides more representative values for features with only 0 and 1 values, and is also robust in the presence of skewed data distributions and outliers.
 
 ### Under-Over Sampling Technique  
