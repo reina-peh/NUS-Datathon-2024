@@ -63,7 +63,7 @@ Total percentage of null values in the DataFrame: 22.6%
 83 columns with > 50% null values  
 
 **Skewed Distributions**  
-<img src="https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/07a9b03c-f0ba-46d7-8b96-26228bd58ff9" width="500">  
+![image](https://github.com/reina-peh/NUS-Datathon-2024/assets/75836749/f43f063a-1007-4094-a77f-7aac0b77eb64)  
 Since our data contained some features with right-skewed distributions, and many features with binary values (0s and 1s), we adopted median data imputation to fill the null values. This is because median imputation provides more representative values for features with only 0 and 1 values, and is also robust in the presence of skewed data distributions and outliers.
 
 ### Under-Over Sampling Technique  
