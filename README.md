@@ -41,7 +41,7 @@ Our goal is to predict the outcomes of the target `f_purchase_lh` using the data
 **Function 1: ```clean_data(data, target)```**  
 1. Null Value Analysis: It calculates and displays the count and percentage of null values per column
 2. Column Removal: Columns with 100% null values are removed
-3. `hh_20`, `pop_20`, `hh_size_est` are also removed because we observed that `hh_size` =  `hh_20`/ `pop_20`, and  `hh_size` is more meaningful than `hh_20` and `pop_20`, and is more granular than `hh_size_est`
+3. `hh_20`, `pop_20`, `hh_size_est` are also removed because we observed that `hh_size` =  `pop_20`/ `hh_20`, and  `hh_size` is more meaningful than `pop_20` and `hh_20`, and is more granular than `hh_size_est`
 
 **Function 2: ```clean_data_v2(data)```**  
 1. `None` Entries Handling: Counts and percentages of `None` entries per column are calculated and sorted. Rows where `min_occ_date` or `cltdob_fix` are `None` are removed 
