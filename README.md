@@ -18,23 +18,24 @@ This competition is the National University of Singapore's biggest annual Data S
 * Claudia Lai ([LinkedIn](https://www.linkedin.com/in/claudialaijy/))  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python  
-Our goal is to predict the outcomes of the target `f_purchase_lh` using the dataset provided by Singlife, which contained 304 columns and 17,992 rows. Our Exploratory Data Analysis can be found in the `NUS Datathon 2024_EDA_Past_Iteration` file. 3 main model performance evaluation metrics were used as they are useful in scenarios where classes are imbalanced, which is the case for our dataset (because the minority class took up only 3.95% of the target column). 
+Our goal is to predict the binary outcomes of the target `f_purchase_lh` using Singlife's highly imbalanced dataset (minority class: only 3.95% of the target column) with 304 columns and 17,992 rows. 
 
-**Evaluation Metrics:**  
+**Test Metrics:**  
 1. Precision  
 2. Recall  
 3. F1-Score (our priority) 
 
 # Our Approach
-1. Data Cleaning 
-2. Feature Engineering 
-3. Imputation Techniques (SimpleImputer, IterativeImputer)
-4. RandomUnderSampler
-5. SMOTENC  
-6. XGClassifier Model  
-7. SelectFromModel Feature Selection Method
-8. Optuna
-9. LIME (Explainable AI)
+1. Exploratory Data Analysis 
+2. Data Cleaning 
+3. Feature Engineering 
+4. Imputation Techniques
+5. RandomUnderSampler
+6. SMOTENC  
+7. XGClassifier Model  
+8. SelectFromModel Feature Selection Method
+9. Optuna
+10. LIME (Explainable AI)
 
 # Data Cleaning  
 
