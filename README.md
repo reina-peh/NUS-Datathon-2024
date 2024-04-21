@@ -26,7 +26,7 @@ Our goal is to predict the binary outcomes of the target `f_purchase_lh` using S
 3. F1-Score (our priority) 
 
 # Our Approach
-1. Exploratory Data Analysis 
+1. EDA
 2. Data Cleaning 
 3. Feature Engineering 
 4. Imputation Techniques
@@ -36,6 +36,10 @@ Our goal is to predict the binary outcomes of the target `f_purchase_lh` using S
 8. SelectFromModel Feature Selection Method
 9. Optuna
 10. LIME (Explainable AI)
+
+# EDA 
+
+Refer to `Exploratory Data Analysis` notebook  
 
 # Data Cleaning  
 
