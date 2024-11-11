@@ -12,10 +12,10 @@ This competition is the National University of Singapore's biggest annual Data S
 **Team Name:** Team Zero  
 
 **Team Members / Contributors:**
-* Reina Peh ([LinkedIn](https://www.linkedin.com/in/reinapeh/))
-* Ryan Tan ([LinkedIn](https://www.linkedin.com/in/ryantzr/))  
-* Zhang Bowen ([LinkedIn](https://www.linkedin.com/in/bowen-zhang-2b5617249/))
-* Claudia Lai ([LinkedIn](https://www.linkedin.com/in/claudialaijy/))  
+* Reina Peh 
+* Ryan Tan 
+* Zhang Bowen 
+* Claudia Lai  
 
 # Predicting Singlife Clients' Purchasing Behaviors With Python  
 Our goal is to predict the binary outcomes of the target `f_purchase_lh` using Singlife's highly imbalanced dataset (minority class: only 3.95% of the target column) with 304 columns and 17,992 rows. 
